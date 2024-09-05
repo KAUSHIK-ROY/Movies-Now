@@ -1,0 +1,33 @@
+.movies{
+    width: 92vw;
+    margin-top: 5vh;
+    margin-left: 7.2vmax;
+    /* border: 1px solid white; */
+    color: white;
+    display: flex;
+}
+
+.genre{
+    height: 230px;
+    width: 100%;
+}
+
+.genre h2{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+.all-cards{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden;
+}
+
+.all-cards::-webkit-scrollbar{      /*for hiding scrollbar*/
+    display: none;
+
+    
+}

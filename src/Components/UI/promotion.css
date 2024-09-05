@@ -1,9 +1,23 @@
+.trailer{
+    height: 100vh;
+}
+.background-video{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;      /* so that the content will belong to on the background */
+        width: 100%;
+        overflow:hidden; 
+}
+
 .movie-info{
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
-    margin-left: 7.2vmax;
-    gap: 20vh;
-    position: absolute;
+    padding-left: 7.2vmax;
+    gap: 30vh;
+    /* position: relative; */
+    /* background-color: burlywood; */
 }
 .headline{
     color: white;

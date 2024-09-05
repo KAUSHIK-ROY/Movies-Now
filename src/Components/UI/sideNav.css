@@ -1,16 +1,15 @@
 .nav{
     display: flex;
-    justify-content: space-between;
-        position: relative;
+
 }
 
 .sideNav{
     display: flex;
-    width: 20vw;
     height: 100vh;
     align-items: center;   
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
-    /* background-color: aquamarine; */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .sideNav ul{
@@ -19,12 +18,17 @@
     font-weight: bold;
     padding-left: 1.5vw;
     list-style-type: none;
-    color: rgb(104, 104, 104);
-
+    color: rgba(255, 255, 255, 0.373);
+    width: 3.8vw;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
 }
 
 .sideNav ul:hover{
-    color: rgb(255, 255, 255);
+    justify-content: center;
+    width: 13vw;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
 
 }
 
@@ -33,6 +37,12 @@
     height: 8vh;
     display: flex;
     align-items: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;    
+}
+
+.sideNav ul li:hover{
+    color: white;
+    transform: scale(1.05);
 }
 
 
@@ -45,8 +55,11 @@
 
 .search-bar{
     height: 12vh;
-    margin: 2vh 10vw ;
+    /* margin: 2vh 10vw ; */
     display: flex;
+    position: fixed;
+    top: 2vh;
+    right: 10vw;
 }
 
 .search-input{

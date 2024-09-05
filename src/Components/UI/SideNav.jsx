@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sideNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,9 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function SideNav() {
+
   return (
     <div className="nav">
       <div className="sideNav">

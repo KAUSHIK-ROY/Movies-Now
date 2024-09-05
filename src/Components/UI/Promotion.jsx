@@ -1,8 +1,15 @@
 import React from "react";
 import "./promotion.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import{ faPlay, faPlus, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import Movies from './Movies'
 
 export default function Promotion() {
   return (
+    <div className="trailer">
+     <video className="background-video" autoPlay loop muted>
+        <source src="D:\My download\SPIDER-MAN_ NO WAY HOME - Official Trailer (HD).mp4" type="video/mp4" />
+      </video>
     <div className="movie-info" id="Home">
       <div className="headline">
         <h1>Welcome to Movies Now</h1>
@@ -22,7 +29,7 @@ export default function Promotion() {
             A Netflix original series | <span>Thriller</span> | 2021{" "}
           </h3>
           <h6 id="rate">
-            <span>IMDb</span> <i class="bi bi-star-half"></i> 8.2/10
+            <span>IMDb</span> <FontAwesomeIcon icon={faStarHalfStroke} /> 8.2/10
           </h6>
         </div>
         <div className="play-btn">
@@ -30,13 +37,15 @@ export default function Promotion() {
             href="img-vid/Money Heist _ Series Trailer _ Netflix.mp4"
             className="play"
           >
-            <i className="bi bi-play-fill"></i> Watch now
+            <FontAwesomeIcon icon={faPlay} /> Watch now
           </a>
           <a href="#" className="watchlist">
-            <i className="bi bi-plus-lg"></i>
+          <FontAwesomeIcon icon={faPlus} />
           </a>
         </div>
       </div>
+    </div>
+    <Movies/>
     </div>
   );
 }
