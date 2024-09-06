@@ -10,6 +10,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    pointer-events: none;
 }
 
 .sideNav ul{
@@ -22,6 +23,7 @@
     width: 3.8vw;
     overflow: hidden;
     transition: width 0.3s ease-in-out;
+    pointer-events: auto;
 }
 
 .sideNav ul:hover{
@@ -29,7 +31,6 @@
     width: 13vw;
     height: 100vh;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
-
 }
 
 .sideNav ul li{
@@ -55,7 +56,6 @@
 
 .search-bar{
     height: 12vh;
-    /* margin: 2vh 10vw ; */
     display: flex;
     position: fixed;
     top: 2vh;
