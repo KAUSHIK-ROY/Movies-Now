@@ -9,22 +9,6 @@ export default function Movies() {
         <h2>Popular shows</h2>
         <div className="all-cards">
           <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
         </div>
       </div>
     </div>

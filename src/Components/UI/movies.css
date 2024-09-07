@@ -1,6 +1,6 @@
 .movies{
     width: 92vw;
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
     margin-left: 7.2vmax;
     /* border: 1px solid white; */
     color: white;
@@ -31,3 +31,4 @@
 
     
 }
+

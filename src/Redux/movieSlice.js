@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   bannerData: [],
-  imageURL : ""
+  imageURL : "",
+  genre : []
 }
 
 export const movieSlice = createSlice({
@@ -14,11 +15,14 @@ export const movieSlice = createSlice({
     },
     setImageURL : (state, action) =>{
         state.imageURL = action.payload
+    },
+    setGenre : (state,action) =>{
+      state.genre = action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setBannerData, setImageURL } = movieSlice.actions
+export const { setBannerData, setImageURL, setGenre } = movieSlice.actions
 
 export default movieSlice.reducer
