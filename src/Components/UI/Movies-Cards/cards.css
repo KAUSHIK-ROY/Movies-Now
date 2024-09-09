@@ -19,7 +19,9 @@
     margin-right: calc((120px - 300px) / 2);
     border-radius: 10px;
 }
-
+.cards:first-child:hover{
+    transform: translateX(100px);
+}
 
 .v-card img{
     width: 100%;
