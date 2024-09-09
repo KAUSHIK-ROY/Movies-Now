@@ -1,29 +1,29 @@
 .movies{
     width: 92vw;
-    /* margin-top: 5vh; */
+    height: 30vh;
     margin-left: 7.2vmax;
-    /* border: 1px solid white; */
     color: white;
     display: flex;
 }
 
 .genre{
-    height: 230px;
     width: 100%;
 }
 
 .genre h2{
-    height: 5vh;
+    height: 6vh;
     display: flex;
     align-items: center;
 }
 
 .all-cards{
     display: flex;
+    /* height: auto; */
     width: 100%;
-    gap: 5px;
-    overflow-x: auto; /* Allow horizontal scrolling */
-    overflow-y: hidden;
+    gap: 1vw;
+    overflow-x: auto;
+    overflow-y: visible;
+    align-items: center;
 }
 
 .all-cards::-webkit-scrollbar{      /*for hiding scrollbar*/

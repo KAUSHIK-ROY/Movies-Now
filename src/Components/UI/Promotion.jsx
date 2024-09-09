@@ -14,7 +14,7 @@ export default function Promotion() {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const genre = useSelector((state )=>state.moviesData.genre);
   // console.log("imageUrl",bannerData);
-  console.log("genre", genre)
+  // console.log("genre", genre)
 
   // const movieGenre = ()=>{
   //   if()
@@ -43,7 +43,7 @@ export default function Promotion() {
       nextBanner()
     } else {
       setCurrentBanner(0)
-    }},2000)
+    }},5000)
     return ()=>clearInterval(interval)
   },[bannerData,imageURL])
 

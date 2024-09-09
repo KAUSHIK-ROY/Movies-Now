@@ -27,6 +27,7 @@ function App() {
     }
   }
 
+
   const fetchConfiguration = async()=>{
     try{
       const response = await axios.get("/configuration")

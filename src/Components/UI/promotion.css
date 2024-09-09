@@ -135,7 +135,7 @@
 }
 .slide-banner{
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     gap: 5px;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -149,6 +149,7 @@
   .slide-banner > div:first-child{
       margin-left: 9.5vw;
   }
+
 .mini-banner{
     display: flex;
     justify-content: center;
