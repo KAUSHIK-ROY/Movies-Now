@@ -3,19 +3,21 @@
     height: 180px;
     flex-shrink: 0; 
     transition: 0.5s ease;
+    position: relative;
+    top: 2vh;
+}
+
+.cards:hover {
+    width: 300px;
+    height: 350px;
+    z-index: 100;
     transform-origin: center;
     position: relative;
-    z-index: 1;
-}
-
-.cards:hover{
-    transform: scale(1.5);
-    z-index: 100;
-
-}
-.cards h1{
-    font-size: 20px;
-    color: aliceblue;
+    top: 0vh;
+    border-radius: 0px;
+    margin-left: calc((120px - 300px) / 2);
+    margin-right: calc((120px - 300px) / 2);
+    border-radius: 10px;
 }
 
 
@@ -23,7 +25,65 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    z-index: 1;
+    /* z-index: 1; */
+    border-radius: 5px;
 
+}
+.v-card {
+    position: absolute;
+    opacity: 1;
+}
+.b-card h1{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+}
+.b-card{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(34, 34, 34);
+    position: absolute;
+    opacity: 0;
+}
+
+.cards:hover .b-card{
+    box-shadow: 0px 1px 10px black;
+    opacity: 1;
+}
+.cards:hover .v-card{
+    opacity: 0;
+}
+
+.b-card img{
+    height: 50%; 
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+.b-card p{
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.b-card button{
+    background: linear-gradient(90deg, #00bdff, #0079ff);
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    left: 75%;
+    top: 33%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,6 +1,5 @@
 .nav{
     display: flex;
-
 }
 
 .sideNav{
@@ -12,6 +11,7 @@
     top: 0;
     left: 0;
     pointer-events: none;
+    z-index: 1000;
 }
 
 .sideNav ul{
@@ -25,14 +25,17 @@
     overflow: hidden;
     transition: width 0.3s ease-in-out;
     pointer-events: auto;
+
 }
 
 .sideNav ul:hover{
     justify-content: center;
     width: 13vw;
     height: 100vh;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.9) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1000;
 }
+
 
 .sideNav ul li{
     width: 11vw;
@@ -45,7 +48,7 @@
 .sideNav ul li:hover{
     color: white;
     transform: scale(1.05);
-    z-index: 20;
+    z-index: 1000;
 }
 
 
@@ -62,6 +65,7 @@
     position: fixed;
     top: 2vh;
     right: 10vw;
+    z-index: 1000;
 }
 
 .search-input{
