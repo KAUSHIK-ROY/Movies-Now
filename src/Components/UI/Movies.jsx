@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./movies.css";
-import Cards from "./Movies-Cards/Cards";
+const Cards = React.lazy(()=> import ("./Movies-Cards/Cards"));
 
 export default function Movies({data=[],heading}) {
   
@@ -9,9 +9,11 @@ export default function Movies({data=[],heading}) {
       <div className="genre">
         <h2>{heading}</h2>
         <div className="all-cards">
+          <Suspense fallback={<p>This is loading...</p>}>
           {data.map((data)=>{
             return (<Cards data={data}/>)
             })}
+          </Suspense>
         </div>
       </div>
     </div>

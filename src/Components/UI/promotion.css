@@ -84,7 +84,7 @@
     padding-right: 10px;
 }
 
-.watchlist{
+.w-list-btn{
     color: white;
     width: 3vw;
     height: 6.5vh;
@@ -103,7 +103,7 @@
     color:  #00bdff;
 }
 
-.watchlist:hover{
+.w-list-btn:hover{
     background: white;
     color:  #00bdff;
 }

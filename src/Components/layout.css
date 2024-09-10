@@ -8,7 +8,7 @@
 
 ::-webkit-scrollbar{      /*for hiding scrollbar*/
     /* display: none; */
-    width: 5px;
+    width: 10px;
     
 }
 

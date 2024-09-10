@@ -23,7 +23,7 @@
     gap: 0.2vw;
     overflow-x: auto;
     overflow-y: hidden;
-    min-height: 25.5vh;
+    min-height: 27.5vh;
 }
 
 .all-cards::-webkit-scrollbar{      /*for hiding scrollbar*/

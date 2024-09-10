@@ -7,7 +7,6 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 export default function Cards({data}) {
   const imageURL = useSelector(state => state.moviesData.imageURL)
-  console.log ("me",data)
   return (
     <div className="cards">
       <div className="v-card">

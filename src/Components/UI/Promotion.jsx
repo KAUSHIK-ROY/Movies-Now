@@ -43,7 +43,7 @@ export default function Promotion() {
       nextBanner()
     } else {
       setCurrentBanner(0)
-    }},5000)
+    }},12000)
     return ()=>clearInterval(interval)
   },[bannerData,imageURL])
 
@@ -75,7 +75,7 @@ export default function Promotion() {
                         </span>
                         Watch now
                       </div>
-                      <div className="watchlist">
+                      <div className="w-list-btn">
                         <FontAwesomeIcon icon={faPlus} />
                       </div>
                     </div>

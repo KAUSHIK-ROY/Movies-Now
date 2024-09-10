@@ -20,12 +20,11 @@
     font-weight: bold;
     padding-left: 1.5vw;
     list-style-type: none;
-    color: rgba(162, 162, 162, 0.69);
     width: 3.8vw;
     overflow: hidden;
     transition: width 0.3s ease-in-out;
     pointer-events: auto;
-
+    text-decoration: none;
 }
 
 .sideNav ul:hover{
@@ -42,6 +41,7 @@
     height: 8vh;
     display: flex;
     align-items: center;
+    /* color: rgba(162, 162, 162, 0.69); */
     transition: background-color 0.3s ease, transform 0.1s ease;    
 }
 
@@ -49,8 +49,18 @@
     color: white;
     transform: scale(1.05);
     z-index: 1000;
+    text-decoration: none;
+}
+.active-color{
+    color: white;
+}
+.fade-color{
+    color: rgba(162, 162, 162, 0.69);
 }
 
+.sideNav a{
+    text-decoration: none;
+}
 
 .idiv{
     font-size: 21px;
@@ -60,33 +70,44 @@
 }
 
 .search-bar{
-    height: 12vh;
+    height: 4.5vh;
+    width:19vw;
+    border-radius: 40px; 
+    border: 3px solid #0079ff;
     display: flex;
     position: fixed;
     top: 2vh;
     right: 10vw;
     z-index: 1000;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
 }
 
 .search-input{
-    width: 12vw;
-    height: 4vh;
+    width: 15vw;
+    height: 4.49vh;
     padding:0 15px 0 15px ;
     border: none;
     outline: none;
     border-radius: 20px 0 0 20px; 
-    color: white;
-    background-color: rgba(200, 200, 200, 0.31);
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+}
+.search-input::placeholder{
+    color: rgba(0, 0, 0, 0.571);
 }
 
 
 .search-btn{
     color: rgb(255, 255, 255);
     font-size: 18px;
-    height: 4vh;
-    width: 2.7vw;
+    height: 28px;
+    width: 28px;
     border: none;
-    border-radius:0 20px 20px 0; 
-    padding-right: 10px;
-    background-color: rgba(200, 200, 200, 0.31);
+    border-radius:50%; 
+    background: #0079ff;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
 }
