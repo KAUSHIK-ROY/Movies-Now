@@ -15,7 +15,6 @@
     transform-origin: center;
     position: relative;
     top: 0vh;
-    border-radius: 0px;
     margin-left: calc((130px - 300px) / 2);
     margin-right: calc((130px - 300px) / 2);
     border-radius: 10px;

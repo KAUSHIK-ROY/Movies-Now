@@ -11,6 +11,7 @@ import {
   faShapes,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import logo from ".././logo-pics/logo.png";
 
 export default function SideNav() {
   return (
@@ -66,6 +67,9 @@ export default function SideNav() {
             </li>
           </NavLink>
         </ul>
+      </div>
+      <div className="logo">
+        <img src={logo} alt="" />
       </div>
       <div className="search-bar">
         <input type="text" placeholder="Search..." class="search-input" />

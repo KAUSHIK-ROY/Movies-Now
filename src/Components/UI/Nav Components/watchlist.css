@@ -1,11 +1,12 @@
-.categories{
+.watchlist{
     height: 100vh;
     width: 100vw;
     display: flex;
     /* align-items: center; */
     flex-direction: column;
 }
-.categories h1{
+
+.watchlist h1{
     height: 10vh;
     display: flex;
     align-items: center;

@@ -18,14 +18,14 @@ function App() {
       console.log("Error", error)
     }
   }
-  const fetchGenre = async() => {
-    try{
-      const response = await axios.get('/genre/movie/list')
-      dispatch(setGenre(response.data.genres))
-    } catch(error) {
-      console.log("Error", error)
-    }
-  }
+  // const fetchGenre = async() => {
+  //   try{
+  //     const response = await axios.get('/genre/movie/list')
+  //     dispatch(setGenre(response.data.genres))
+  //   } catch(error) {
+  //     console.log("Error", error)
+  //   }
+  // }
 
 
   const fetchConfiguration = async()=>{
@@ -40,7 +40,7 @@ function App() {
   useEffect(()=>{
     fetchTrendingData()
     fetchConfiguration()
-    fetchGenre()
+    // fetchGenre()
   },[])
   return (
     <div className="App">

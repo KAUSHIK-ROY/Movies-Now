@@ -1,0 +1,22 @@
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    gap: 2vh;
+}
+
+.error h1{
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.error h3{
+    font-size: 20px;
+}
+
+.error-icn{
+    font-size: 90px;
+}
