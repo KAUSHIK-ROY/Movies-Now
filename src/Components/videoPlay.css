@@ -1,0 +1,15 @@
+.video-play{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.712);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+iframe{
+    height: 80%;
+    width: 80%;
+}

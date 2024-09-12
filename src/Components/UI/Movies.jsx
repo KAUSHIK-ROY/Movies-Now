@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./movies.css";
 const Cards = React.lazy(()=> import ("./Movies-Cards/Cards"));
 
-export default function Movies({data=[],heading}) {
+export default function Movies({data=[],heading,media_type,myVideo}) {
   
   return (
     <div className="movies">
@@ -11,7 +11,7 @@ export default function Movies({data=[],heading}) {
         <div className="all-cards">
           <Suspense fallback={<p>This is loading...</p>}>
           {data.map((data)=>{
-            return (<Cards data={data}/>)
+            return (<Cards data={data} media_type={media_type} myVideo={myVideo}/>)
             })}
           </Suspense>
         </div>

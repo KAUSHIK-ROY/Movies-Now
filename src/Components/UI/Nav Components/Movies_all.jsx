@@ -27,7 +27,7 @@ export default function Movies_all() {
     <div className="movies-all">
       <SideNav/>
       <h1 className="component-name">Movies</h1>
-      <M_movies data={popularShowData} heading={""} />
+      <M_movies data={popularShowData} heading={""} media_type={"movie"}/>
       </div>
   )
 }

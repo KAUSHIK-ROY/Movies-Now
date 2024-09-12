@@ -18,6 +18,8 @@ import Account from "./Components/UI/Nav Components/Account";
 import Movies_all from "./Components/UI/Nav Components/Movies_all";
 import About_us from "./Components/UI/Nav Components/About_us";
 import Error from "./Components/Error";
+import DetailPage from "./Components/DetailPage";
+import VideoPlay from "./Components/VideoPlay";
 
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
@@ -55,6 +57,14 @@ const allRoutes = createBrowserRouter([
       {
         path:'*',
         element:<Error/>
+      },
+      {
+        path: ":detail/:id",
+        element:<DetailPage/>
+      },
+      {
+        path: ":type/:id/video",
+        element:<VideoPlay/>
       }
 ]);
 

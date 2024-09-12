@@ -11,4 +11,36 @@
     align-items: center;
     justify-content: center;
     background-color: red;
+    margin-bottom: 5vh;
+}
+.genre-div{
+    height: auto;
+    width: 87vw;
+    margin-left: 7.2vmax;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(91px, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+}
+.genre-btn{
+    height: 120px;
+    /* width: 250px; */
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    transition: 0.1s ease;
+    background: rgb(255,2,2);
+    background: linear-gradient(90deg, rgba(24,37,121,1) 0%, rgba(0,212,255,1) 100%);
+
+}
+.genre-btn:hover{
+    transform: scale(1.2);
+    box-shadow: 1px 1px 10px white;
+}
+.genre-btn:hover:active{
+    transform: scale(1.1);
+    background: white;
+    color: rgba(24,37,121,1);
 }
