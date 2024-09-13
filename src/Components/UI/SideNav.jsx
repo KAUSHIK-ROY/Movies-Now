@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./sideNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +14,8 @@ import {
 import logo from ".././logo-pics/logo.png";
 
 export default function SideNav() {
+
+  const navigate = useNavigate()
   return (
     <div className="nav">
       <div className="sideNav">
@@ -72,10 +74,11 @@ export default function SideNav() {
         <img src={logo} alt="" />
       </div>
       <div className="search-bar">
-        <input type="text" placeholder="Search..." class="search-input" />
+        <input type="text" placeholder="Search..." class="search-input" onChange={(e)=>{navigate(`/search?query=${e.target.value}`)}} />
         <button class="search-btn">
           <FontAwesomeIcon icon={faSearch} />
         </button>
+        {/* </Link> */}
       </div>
     </div>
   );

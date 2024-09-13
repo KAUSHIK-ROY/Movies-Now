@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export default function Cards({ data, media_type, myVideo }) {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
@@ -30,7 +31,7 @@ export default function Cards({ data, media_type, myVideo }) {
               <h1>{data?.title || data?.name}</h1>
               <p>
                 {mediaType} | {data.original_language} |{" "}
-                {data.release_date || data.first_air_date}
+                {moment(data.release_date || data.first_air_date).format('YYYY')}
               </p>
               <p>{data?.overview}</p>
             </Link>

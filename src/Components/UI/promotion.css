@@ -27,7 +27,6 @@
 }
 .black{
     background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%), linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%) ;
-    background-color: red;
     position: relative;
     height: 90vh;
     background-color: transparent;
@@ -35,7 +34,6 @@
     
 .banner-details{
     position: relative;
-    /* background-color: aquamarine; */
     height: 50vh;
     width: 40vw;
     display: flex;

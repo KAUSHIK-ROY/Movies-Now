@@ -1,5 +1,96 @@
 .detail-page{
     height: 100vh;
-    width: 100vw;
-    background-color: brown;
+    width: 100%;
+}
+.trailer{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+.trailer img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.black-div{
+    background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%), linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%) ;
+    position: relative;
+    height: 100vh;
+    background-color: transparent;
+}
+.trailer-details{
+    position: relative;
+    height: 60vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vmax;
+    justify-content:end;
+    top: 25vh;                     /* 40vh */
+    color: white;
+    gap: 3.5vh;
+    text-shadow: 2px 0px 10px black;
+}
+.trailer-details h1{
+    font-size: 50px;
+    /* background-color: rebeccapurple; */
+}
+.trailer-details p span{
+    color: rgba(255, 255, 255, 0.332);
+}
+.bold{
+    font-weight: bold;
+}
+
+.play-btn1{
+    height: 10vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.play1{
+    color: white;
+    text-shadow: none;
+    font-size: 22px;
+    width: 20vw;
+    height: 7.5vh;
+    border-radius: 5px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #00bdff, #0079ff);
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.play1 span{
+    padding-right: 15px;
+}
+.w-list-btn1{
+    color: white;
+    width: 7.5vh;
+    height: 7.5vh;
+    border-radius: 5px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #00bdff, #0079ff);
+    transition: 0.5s;
+    font-size: 22px;
+}
+
+
+.play1:hover{
+    background: white;
+    color:  #00bdff;
+}
+
+.w-list-btn1:hover{
+    background: white;
+    color:  #00bdff;
 }

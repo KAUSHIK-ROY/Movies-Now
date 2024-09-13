@@ -20,6 +20,7 @@ import About_us from "./Components/UI/Nav Components/About_us";
 import Error from "./Components/Error";
 import DetailPage from "./Components/DetailPage";
 import VideoPlay from "./Components/VideoPlay";
+import SearchPage from "./Components/SearchPage";
 
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
@@ -65,6 +66,10 @@ const allRoutes = createBrowserRouter([
       {
         path: ":type/:id/video",
         element:<VideoPlay/>
+      },
+      {
+        path: "search",
+        element: <SearchPage/>
       }
 ]);
 

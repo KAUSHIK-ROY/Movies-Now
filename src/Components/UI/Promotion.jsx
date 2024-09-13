@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export default function Promotion() {
   const bannerData = useSelector((state) => state.moviesData.bannerData);
@@ -71,7 +72,7 @@ export default function Promotion() {
                       </h1>
                       <p className="type-date">
                         {data.media_type} | {data.original_language} |{" "}
-                        {data.release_date || data.first_air_date}
+                        {moment(data.release_date || data.first_air_date).format('MMMM Do YYYY')}
                       </p>
                       <p>{data.overview}</p>
                       <p>{data.genre_ids}</p>
