@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import useFetchLanguage from "../../../Hooks/useFetchLanguage";
 
 export default function M_cards({ data, media_type }) {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const mediaType = data.media_type ?? media_type;
+  const { getLanguageName } = useFetchLanguage();
 
   return (
     <div className="m-cards">
@@ -31,7 +33,7 @@ export default function M_cards({ data, media_type }) {
               </Link>
               <h1>{data?.title || data?.name}</h1>
               <p>
-                {mediaType} | {data.original_language} | {moment(data.release_date || data.first_air_date).format('YYYY')}
+                {mediaType} | {getLanguageName(data.original_language)} | {moment(data.release_date || data.first_air_date).format('YYYY')}
               </p>
               <p>{data?.overview}</p>
             </Link>

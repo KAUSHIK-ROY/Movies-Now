@@ -10,17 +10,16 @@ import {
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import useFetchLanguage from "../../Hooks/useFetchLanguage";
+import useFetchGenres from "../../Hooks/useFetchGenres";
+import useFetchCertifications from "../../Hooks/useFetchCertifications";
 
 export default function Promotion() {
   const bannerData = useSelector((state) => state.moviesData.bannerData);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
-  const genre = useSelector((state) => state.moviesData.genre);
-  // console.log("imageUrl",bannerData);
-  // console.log("genre", genre)
-
-  // const movieGenre = ()=>{
-  //   if()
-  // }
+  const { getGenreNames } = useFetchGenres();
+  const { getLanguageName } = useFetchLanguage();
+  const { getCertificationName, loading: certLoading  } = useFetchCertifications();
 
   const [currentBanner, setCurrentBanner] = useState(0);
   const nextBanner = () => {
@@ -33,11 +32,6 @@ export default function Promotion() {
       setCurrentBanner((preve) => preve - 1);
     }
   };
-  // const handleChange = (index)=>{
-  // console.log("index of", imageURL + bannerData[5].backdrop_path)
-  // console.log("index data", bannerData[index])
-  // console.log("index is", index)
-  // }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,6 +43,8 @@ export default function Promotion() {
     }, 5000);
     return () => clearInterval(interval);
   }, [bannerData, imageURL, currentBanner]);
+
+  // console.log("b data me", getCertificationName)
 
   return (
     <>
@@ -68,21 +64,22 @@ export default function Promotion() {
                   <div className="black">
                     <div className="banner-details">
                       <h1>
-                        {data.name || data.original_title || data.original_name}
+                        {data.name || data.title || data.original_title || data.original_name}
                       </h1>
-                      <p className="type-date">
-                        {data.media_type} | {data.original_language} |{" "}
-                        {moment(data.release_date || data.first_air_date).format('MMMM Do YYYY')}
+                      <p className="bold">
+                        {data.media_type} | {getLanguageName(data.original_language)} | {" "}
+                         {/* {certLoading ? "Loading certifications..." : getCertificationName(data.media_type, "US", data.certification)} | */}
+                        {moment(data.release_date || data.first_air_date).format('YYYY')}
                       </p>
                       <p>{data.overview}</p>
-                      <p>{data.genre_ids}</p>
+                      <p className="bold">{getGenreNames(data.genre_ids)}</p>
                       <div className="play-btn">
-                        <Link to={`/${data?.media_type}/${data.id}/video`}>
+                        <Link to={`/${data?.media_type}/${data.id}/video`} data={data.id} media_type={data?.media_type}>
                           <div className="play">
                             <span>
                               <FontAwesomeIcon icon={faPlay} />
                             </span>
-                            Watch now
+                            Watch Now
                           </div>
                         </Link>
                         <div className="w-list-btn">

@@ -5,7 +5,7 @@
 .sideNav{
     display: flex;
     height: 100vh;
-    width: 13vw;
+    width: 5vw;
     align-items: center;   
     position: fixed;
     top: 0;
@@ -22,17 +22,17 @@
     list-style-type: none;
     width: 3.8vw;
     overflow: hidden;
-    transition: width 0.3s ease-in-out;
+    transition:0.5s;
     pointer-events: auto;
     text-decoration: none;
 }
 
-.sideNav ul:hover{
-    justify-content: center;
-    width: 13vw;
-    height: 100vh;
+.sideNav:hover{
+    width: 14vw;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.9) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
-    z-index: 1000;
+}
+.sideNav:hover ul{
+    width: 14vw;
 }
 
 
@@ -41,7 +41,6 @@
     height: 8vh;
     display: flex;
     align-items: center;
-    /* color: rgba(162, 162, 162, 0.69); */
     transition: background-color 0.3s ease, transform 0.1s ease;    
 }
 
@@ -55,7 +54,7 @@
     color: white;
 }
 .fade-color{
-    color: rgba(106, 106, 106, 0.69);
+    color: rgba(137, 137, 137, 0.69);
     transition: 0.5s ease;
 }
 

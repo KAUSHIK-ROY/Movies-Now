@@ -16,7 +16,7 @@ const useFetchDetails = (endpoint)=>{
        }
     }
 
-    useEffect(()=>{
+    useEffect(()=>{ 
         fetchData()
     },[endpoint])
 
