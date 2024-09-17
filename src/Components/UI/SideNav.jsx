@@ -14,21 +14,6 @@ import {
 import logo from ".././logo-pics/logo.png";
 
 export default function SideNav() {
-
-  // const removeSpace = location?.search?.slice(3)?.split("%20")?.join(" ")
-  // const [searchInput, setSearchInput] = useState(removeSpace);
-
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (searchInput) {
-  //     navigate(`/search?q=${searchInput}`);
-  //   }
-  // }, [searchInput]);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
   return (
     <div className="nav">
       <div className="sideNav">
@@ -98,19 +83,6 @@ export default function SideNav() {
               Watchlist
             </li>
           </NavLink>
-          {/* <NavLink
-            className={(e) => {
-              return e.isActive ? "active-color" : "fade-color";
-            }}
-            to={"/about-us"}
-          >
-            <li>
-              <div className="idiv">
-                <FontAwesomeIcon icon={faCircleInfo} />
-              </div>
-              About Us
-            </li>
-          </NavLink> */}
           <NavLink
             className={(e) => {
               return e.isActive ? "active-color" : "fade-color";
@@ -129,17 +101,6 @@ export default function SideNav() {
       <div className="logo">
         <img src={logo} alt="" />
       </div>
-      {/* <form className="search-bar" onClick={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search..."
-          class="search-input"
-          onChange={(e)=>setSearchInput(e.target.value)}  value={searchInput}
-        />
-        <button class="search-btn">
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-      </form> */}
     </div>
   );
 }

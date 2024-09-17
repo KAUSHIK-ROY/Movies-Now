@@ -11,14 +11,15 @@ export default function M_cards({ data, media_type }) {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const mediaType = data.media_type ?? media_type;
   const { getLanguageName } = useFetchLanguage();
+  console.log("card", data)
 
   return (
     <div className="m-cards">
       <div className="mv-card">
         {data?.poster_path ? (
-          <img src={imageURL + data?.poster_path} />
+          <img src={imageURL + data?.poster_path} alt=""/>
         ) : (
-          "not found"
+          `not found`
         )}
       </div>
       <div className="mb-card">
@@ -39,7 +40,7 @@ export default function M_cards({ data, media_type }) {
             </Link>
           </>
         ) : (
-          "not found"
+          `not found`
         )}
       </div>
     </div>

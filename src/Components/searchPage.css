@@ -6,12 +6,40 @@
     flex-direction: column;
     overflow-x: hidden;
 }
-.search-page .component-name{
-    height: 10vh;
+.search-div{
+    height: 7vh;
+    width: 60vw;
+    top: 3vh;
+    left: 50%;
     display: flex;
-    flex-shrink: 0;
+    position: fixed;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    margin-bottom: 3vh;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    z-index: 1000;
+    /* border: 5px solid red; */
+}
+.search-div input{
+    height: 100%;
+    width: 93%;
+    border: none;
+    outline: none;
+    border-radius: 0 10px 10px 0;
+    background-color: rgb(35, 35, 35);
+    font-size: 20px;
+    color: white;
+    
+}
+.search-div button{
+    height: 100%;
+    width: 7%;
+    background-color: rgb(35, 35, 35);
+    color: white;
+    font-size: 18px;
+    border: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:  10px 0 0 10px ;
 }

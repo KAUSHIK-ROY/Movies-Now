@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import useFetchLanguage from "../../../Hooks/useFetchLanguage";
 
-export default function Cards({ data, media_type, myVideo }) {
+export default function Cards({ data, media_type }) {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const mediaType = data.media_type ?? media_type;
   const { getLanguageName } = useFetchLanguage();
