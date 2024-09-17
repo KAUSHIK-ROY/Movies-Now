@@ -44,8 +44,15 @@ export default function DetailPage() {
   const handlePlayVideo = (data)=>{
     setPlayVideoId(data)
     setPlayVideo(true)
-
   }
+
+
+
+  const [list, setList] = useState([])
+  const addList = (type,id)=>{
+    setList((preveMovies)=>[...preveMovies, {type,id}])
+  }
+  // console.log("list",list)
   
   // console.log("img data", data.data);
   
@@ -80,7 +87,7 @@ export default function DetailPage() {
               Watch Now
             </div>
           {/* </Link> */}
-            <div className="w-list-btn1">
+            <div className="w-list-btn1" onClick={()=>addList(params?.detail,params?.id)}>
               <FontAwesomeIcon icon={faPlus} />
             </div>
           </div>
@@ -93,7 +100,7 @@ export default function DetailPage() {
 
       {
             playVideo && (
-              <VideoPlay data={params?.id} close={()=>setPlayVideo(false)} media_type={params?.detail}/>
+              <VideoPlay close={()=>setPlayVideo(false)} />
             )
           }
 

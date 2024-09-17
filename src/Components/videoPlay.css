@@ -10,7 +10,17 @@
     justify-content: center;
 }
 iframe{
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 90%;
     background-color: black;
+    border: none;
+}
+.close-btn{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    top: 5%;
+    right: 3.5%;
 }

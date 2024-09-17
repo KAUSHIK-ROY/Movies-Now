@@ -3,7 +3,7 @@ import './App.css';
 import Layout from './Components/Layout';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setBannerData, setGenre, setImageURL } from './Redux/movieSlice'
+import { setBannerData, setImageURL } from './Redux/movieSlice'
 
 function App() {
 
@@ -11,21 +11,13 @@ function App() {
 
   const fetchTrendingData = async() => {
     try{
-      const response = await axios.get('/trending/all/day')
+      const response = await axios.get('/trending/all/week')
       dispatch(setBannerData(response.data.results))
 
     } catch(error) {
       console.log("Error", error)
     }
   }
-  // const fetchGenre = async() => {
-  //   try{
-  //     const response = await axios.get('/genre/movie/list')
-  //     dispatch(setGenre(response.data.genres))
-  //   } catch(error) {
-  //     console.log("Error", error)
-  //   }
-  // }
 
 
   const fetchConfiguration = async()=>{
@@ -40,7 +32,6 @@ function App() {
   useEffect(()=>{
     fetchTrendingData()
     fetchConfiguration()
-    // fetchGenre()
   },[])
   return (
     <div className="App">

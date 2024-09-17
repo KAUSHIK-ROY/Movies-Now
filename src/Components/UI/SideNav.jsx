@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./sideNav.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,12 +15,43 @@ import logo from ".././logo-pics/logo.png";
 
 export default function SideNav() {
 
-  const navigate = useNavigate()
+  // const removeSpace = location?.search?.slice(3)?.split("%20")?.join(" ")
+  // const [searchInput, setSearchInput] = useState(removeSpace);
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (searchInput) {
+  //     navigate(`/search?q=${searchInput}`);
+  //   }
+  // }, [searchInput]);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
   return (
     <div className="nav">
       <div className="sideNav">
         <ul>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/"}>
+        <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/search"}
+          >
+            <li>
+              <div className="idiv">
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+              Search
+            </li>
+          </NavLink>
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faHouse} />
@@ -28,7 +59,12 @@ export default function SideNav() {
               Home
             </li>
           </NavLink>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/categories"}>
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/categories"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faShapes} />
@@ -36,7 +72,12 @@ export default function SideNav() {
               Categories
             </li>
           </NavLink>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/movies"}>
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/movies"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faClapperboard} />
@@ -44,7 +85,12 @@ export default function SideNav() {
               Movies
             </li>
           </NavLink>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/watchlist"}>
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/watchlist"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faBookmark} />
@@ -52,15 +98,25 @@ export default function SideNav() {
               Watchlist
             </li>
           </NavLink>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/about-us"}>
+          {/* <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/about-us"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faCircleInfo} />
               </div>
               About Us
             </li>
-          </NavLink>
-          <NavLink className={(e)=> {return e.isActive? "active-color":"fade-color"}} to={"/account"}>
+          </NavLink> */}
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/account"}
+          >
             <li>
               <div className="idiv">
                 <FontAwesomeIcon icon={faUser} />
@@ -73,13 +129,17 @@ export default function SideNav() {
       <div className="logo">
         <img src={logo} alt="" />
       </div>
-      <div className="search-bar">
-        <input type="text" placeholder="Search..." class="search-input" onChange={(e)=>{navigate(`/search?query=${e.target.value}`)}} />
+      {/* <form className="search-bar" onClick={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search..."
+          class="search-input"
+          onChange={(e)=>setSearchInput(e.target.value)}  value={searchInput}
+        />
         <button class="search-btn">
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        {/* </Link> */}
-      </div>
+      </form> */}
     </div>
   );
 }

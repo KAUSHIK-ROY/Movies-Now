@@ -7,19 +7,20 @@ import {
   faPlay,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import useFetchLanguage from "../../Hooks/useFetchLanguage";
 import useFetchGenres from "../../Hooks/useFetchGenres";
-import useFetchCertifications from "../../Hooks/useFetchCertifications";
+import { setWatchList } from "../../Redux/movieSlice";
+// import useFetchCertifications from "../../Hooks/useFetchCertifications";
 
 export default function Promotion() {
   const bannerData = useSelector((state) => state.moviesData.bannerData);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const { getGenreNames } = useFetchGenres();
   const { getLanguageName } = useFetchLanguage();
-  const { getCertificationName, loading: certLoading  } = useFetchCertifications();
+  // const { getCertificationName, loading: certLoading  } = useFetchCertifications();
 
   const [currentBanner, setCurrentBanner] = useState(0);
   const nextBanner = () => {
@@ -44,7 +45,19 @@ export default function Promotion() {
     return () => clearInterval(interval);
   }, [bannerData, imageURL, currentBanner]);
 
+
+  const dispatch = useDispatch();
   // console.log("b data me", getCertificationName)
+  // const [list, setList] = useState([])
+  const addList = (e, type,id)=>{
+    e.preventDefault();
+    dispatch(setWatchList(type,id))
+  }
+  // console.log("list",list)
+
+  
+
+
 
   return (
     <>
@@ -59,7 +72,7 @@ export default function Promotion() {
                   transition: "transform 0.5s ease-in-out",
                 }}
               >
-                <img src={imageURL + data.backdrop_path} />
+                <img src={imageURL + data.backdrop_path} alt="" />
                 <Link to={"/" + data?.media_type + "/" + data.id}>
                   <div className="black">
                     <div className="banner-details">
@@ -74,7 +87,7 @@ export default function Promotion() {
                       <p>{data.overview}</p>
                       <p className="bold">{getGenreNames(data.genre_ids)}</p>
                       <div className="play-btn">
-                        <Link to={`/${data?.media_type}/${data.id}/video`} data={data.id} media_type={data?.media_type}>
+                        <Link to={`/${data?.media_type}/${data.id}/video`} >
                           <div className="play">
                             <span>
                               <FontAwesomeIcon icon={faPlay} />
@@ -82,7 +95,7 @@ export default function Promotion() {
                             Watch Now
                           </div>
                         </Link>
-                        <div className="w-list-btn">
+                        <div className="w-list-btn" onClick={(e)=>addList(e,data.media_type,data.id)}>
                           <FontAwesomeIcon icon={faPlus} />
                         </div>
                       </div>
@@ -107,7 +120,7 @@ export default function Promotion() {
                     transition: "transform 0.5s ease-in-out",
                   }}
                 >
-                  <img src={imageURL + data.backdrop_path} />
+                  <img src={imageURL + data.backdrop_path} alt=""/>
                 </div>
               );
             })}
