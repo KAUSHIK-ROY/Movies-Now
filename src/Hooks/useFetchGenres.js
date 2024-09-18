@@ -24,7 +24,13 @@ const useFetchGenres = () => {
           ...tvResponse.data.genres,
         ];
 
-        setGenres(combinedGenres);
+         // Remove duplicate genres by ID
+         const uniqueGenres = combinedGenres.filter(
+          (genre, index, self) =>
+            index === self.findIndex((g) => g.id === genre.id)
+        );
+
+        setGenres(uniqueGenres);
         setLoading(false);
       } catch (err) {
         setError(err);
@@ -48,4 +54,4 @@ const useFetchGenres = () => {
   return { genres, getGenreNames, loading, error };
 };
 
-export default useFetchGenres;
+export default useFetchGenres; 

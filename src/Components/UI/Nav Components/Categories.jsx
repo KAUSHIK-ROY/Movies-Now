@@ -1,21 +1,25 @@
 import React from 'react'
 import "./categories.css"
 import SideNav from '../SideNav'
-// import Movies from '../Movies'
-// import useFetch from '../../../Hooks/useFetch'
+import useFetchGenres from '../../../Hooks/useFetchGenres'
+import { Link } from 'react-router-dom'
 
 export default function Categories() {
 
-  const myGenres = ["Action","Adventure" ,"Animation" ,"Comedy" ,"Crime" ,"Documentary" ,"Drama" ,"Family" ,"Fantasy" ,"History" ,"Horror" ,"Music" ,"Mystery" ,"Romance" ,"Science Fiction" ,"TV Movie" ,"Thriller" ,"War" ,"Western"]
-
+  const {genres} = useFetchGenres()
+  // console.log("genre", genres)
   return (
     <div className='categories'>
       <SideNav/>
       <h1>Categories</h1>
       <div className="genre-div">
         {
-          myGenres.map((e)=>{
-            return <button className='genre-btn'>{e}</button>
+          genres.map((data)=>{
+            return (
+              <Link to={`/category/${data.name}/${data.id}`}>
+            <button className='genre-btn'>{data.name}</button>
+              </Link>
+          )
           })
         }
       </div>

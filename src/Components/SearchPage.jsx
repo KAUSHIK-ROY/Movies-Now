@@ -34,30 +34,6 @@ export default function SearchPage() {
     }
   };
   
-  useEffect(() => {
-    if (query) {
-      setPage(1);
-      setData([]);
-      fetchData();
-    }
-  }, [location?.search]);
-
-  const handleScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      setPage((preve) => preve + 1);
-    }
-  };
-  
-  useEffect(() => {
-    if (query) {
-      fetchData();
-    }
-  }, [page]);
-  
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-  
   const dispatch = useDispatch()
   const fetchConfiguration = async()=>{
     try{
@@ -70,7 +46,27 @@ export default function SearchPage() {
   useEffect(()=>{
     fetchConfiguration()
   },[])
-  console.log("data",data)
+  
+  useEffect(() => {
+    if (query) {
+      setPage(1);
+      setData([]);
+      fetchData();
+    }
+  }, [query,page]);
+
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      setPage((preve) => preve + 1);
+    }
+  };
+  
+  
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+  
+  // console.log("data",data)
   
 
   return (
@@ -87,7 +83,7 @@ export default function SearchPage() {
         />
       </div>
       <SideNav />
-      <div className='m-movies'>
+      <div className='s-movies'>
         {data.map((searchData, index)=>{
             return (<M_cards data={searchData} key={index} media_type={searchData.media_type}/>)
             })}

@@ -22,10 +22,10 @@ export default function Cards({ data, media_type }) {
         )}
       </div>
       <div className="b-card">
-        {data?.backdrop_path ? (
+        {data?.backdrop_path || data?.poster_path ? (
           <>
             <Link to={"/" + mediaType + "/" + data.id}>
-              <img src={imageURL + data?.backdrop_path} />
+              <img src={imageURL + data?.backdrop_path} alt=""/>
               <Link to={`/${mediaType}/${data.id}/video`}>
                 <button>
                   <FontAwesomeIcon icon={faPlay} />
@@ -40,7 +40,7 @@ export default function Cards({ data, media_type }) {
             </Link>
           </>
         ) : (
-          "not found"
+          "Not found"
         )}
       </div>
     </div>

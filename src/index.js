@@ -21,6 +21,7 @@ import Error from "./Components/Error";
 import DetailPage from "./Components/DetailPage";
 import VideoPlay from "./Components/VideoPlay";
 import SearchPage from "./Components/SearchPage";
+import GenrePage from "./Components/GenrePage";
 
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
@@ -70,7 +71,12 @@ const allRoutes = createBrowserRouter([
       {
         path: "search",
         element: <SearchPage/>
+      },
+      {
+        path: "category/:genre/:id",
+        element: <GenrePage/>
       }
+
 ]);
 
 root.render(

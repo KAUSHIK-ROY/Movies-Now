@@ -1,6 +1,6 @@
 .cards{
-    width: 130px;
-    height: 195.5px;
+    width: 150px;
+    height: 226.5px;
     flex-shrink: 0; 
     transition: 0.5s ease;
     position: relative;
@@ -15,8 +15,8 @@
     transform-origin: center;
     position: relative;
     top: 0vh;
-    margin-left: calc((130px - 300px) / 2);
-    margin-right: calc((130px - 300px) / 2);
+    margin-left: calc((150px - 300px) / 2);
+    margin-right: calc((150px - 300px) / 2);
     border-radius: 10px;
     transition-delay: 0.2s;
 }

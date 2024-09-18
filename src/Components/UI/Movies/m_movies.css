@@ -1,7 +1,6 @@
 .m-movies{
     width: auto;
     margin-left: 7.2vmax;
-    background-color: red;
     left: 3.5vw;
     display: grid;
     grid-template-columns: repeat(7, 11.7%);

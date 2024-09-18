@@ -12,11 +12,16 @@ import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
 import moment from 'moment'
 import useFetchLanguages from "../Hooks/useFetchLanguage";
 import VideoPlay from "./VideoPlay";
+import useFetch from "../Hooks/useFetch";
 
 export default function DetailPage() {
   const params = useParams();
   const data = useFetchDetails(`/${params?.detail}/${params?.id}`);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
+  const { data: similarData } = useFetch(`/${params?.detail}/${params?.id}/similar`);
+  const { data: recommendedData } = useFetch(`/${params?.detail}/${params?.id}/recommendations`);
+
+
   const { getLanguageName } = useFetchLanguages()
   
   const dispatch = useDispatch();
@@ -54,7 +59,7 @@ export default function DetailPage() {
   }
   // console.log("list",list)
   
-  // console.log("img data", data.data);
+  console.log("img data", similarData);
   
   return (
     <div className="detail-page">
@@ -93,6 +98,8 @@ export default function DetailPage() {
           </div>
         </div>
       </div>
+      <Movies data={similarData} heading={`Similar ${params?.detail}`} media_type={params?.detail} />
+      <Movies data={recommendedData} heading={"Recommendations"} media_type={params?.detail} />
 
 
 

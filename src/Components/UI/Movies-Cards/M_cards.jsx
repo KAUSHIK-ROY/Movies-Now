@@ -11,7 +11,6 @@ export default function M_cards({ data, media_type }) {
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const mediaType = data.media_type ?? media_type;
   const { getLanguageName } = useFetchLanguage();
-  console.log("card", data)
 
   return (
     <div className="m-cards">

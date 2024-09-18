@@ -1,6 +1,6 @@
 .movies{
     width: 92vw;
-    height: 35vh;
+    height: 37.5vh;
     margin-left: 7.2vmax;
     color: white;
     display: flex;
@@ -20,9 +20,9 @@
 .all-cards{
     display: flex;
     width: 92vw;
-    gap: 0.5vw;
+    gap: 0.65vw;
     overflow: hidden;
-    min-height: 27.5vh;
+    min-height: 31.1vh;
     position: relative;
     scroll-behavior: smooth;
 }
@@ -33,7 +33,7 @@
 
 .btn1 {
     width: 4vw;
-    height: 195.5px ;
+    height: 226.5px ;
     position: absolute;
     top: 5.5vh;
     border: none;

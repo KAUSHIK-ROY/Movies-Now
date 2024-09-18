@@ -1,0 +1,75 @@
+.genrePage{
+    height: 100vh;
+    width: 100%;
+}
+.genre-h1{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    margin-bottom: 5vh;
+    flex-shrink: 0;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .switch-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    color: #888;
+  }
+  
+  .switch-label.active {
+    color: #fff; /* Active label color */
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #ff0000; /* Red color for active */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(30px); /* Moves the toggle */
+  }
+  
