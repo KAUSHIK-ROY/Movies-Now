@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  BrowserRouter,
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
@@ -12,11 +11,9 @@ import { store } from "./Redux/store";
 import { Provider } from "react-redux";
 import axios from "axios";
 import Categories from "./Components/UI/Nav Components/Categories";
-import Layout from "./Components/Layout";
 import Watchlist from "./Components/UI/Nav Components/Watchlist";
 import Account from "./Components/UI/Nav Components/Account";
 import Movies_all from "./Components/UI/Nav Components/Movies_all";
-import About_us from "./Components/UI/Nav Components/About_us";
 import Error from "./Components/Error";
 import DetailPage from "./Components/DetailPage";
 import VideoPlay from "./Components/VideoPlay";
@@ -47,10 +44,6 @@ const allRoutes = createBrowserRouter([
       {
         path: "watchlist",
         element: <Watchlist />,
-      },
-      {
-        path: "about-us",
-        element: <About_us />,
       },
       {
         path: "account",

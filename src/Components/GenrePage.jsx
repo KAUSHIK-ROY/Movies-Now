@@ -30,7 +30,8 @@ export default function GenrePage() {
   const { data : movieGenreData} = useFetch(`/discover/movie?with_genres=${params?.id}`)
   const { data : tvGenreData} = useFetch(`/discover/tv?with_genres=${params?.id}`)
 
-  console.log("name", params)
+  // console.log("name", params)
+  
   return (
     <div className="genrePage">
       <SideNav/>

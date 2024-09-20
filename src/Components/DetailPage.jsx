@@ -9,7 +9,7 @@ import { setImageURL } from "../Redux/movieSlice";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
-import moment from 'moment'
+import moment from "moment";
 import useFetchLanguages from "../Hooks/useFetchLanguage";
 import VideoPlay from "./VideoPlay";
 import useFetch from "../Hooks/useFetch";
@@ -18,12 +18,15 @@ export default function DetailPage() {
   const params = useParams();
   const data = useFetchDetails(`/${params?.detail}/${params?.id}`);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
-  const { data: similarData } = useFetch(`/${params?.detail}/${params?.id}/similar`);
-  const { data: recommendedData } = useFetch(`/${params?.detail}/${params?.id}/recommendations`);
+  const { data: similarData } = useFetch(
+    `/${params?.detail}/${params?.id}/similar`
+  );
+  const { data: recommendedData } = useFetch(
+    `/${params?.detail}/${params?.id}/recommendations`
+  );
 
+  const { getLanguageName } = useFetchLanguages();
 
-  const { getLanguageName } = useFetchLanguages()
-  
   const dispatch = useDispatch();
   const fetchConfiguration = async () => {
     try {
@@ -36,83 +39,90 @@ export default function DetailPage() {
   useEffect(() => {
     fetchConfiguration();
   }, []);
-  
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params.id]);
+
   const totalMinutes = data.data?.runtime || 0;
   const hours = Math.floor(totalMinutes / 60);
   const minutes = Math.floor(totalMinutes % 60);
   const formattedDuration = `${hours}h ${minutes}m`;
 
+  const [playVideo, setPlayVideo] = useState(false);
+  const [playVideoId, setPlayVideoId] = useState("");
+  const handlePlayVideo = (data) => {
+    setPlayVideoId(data);
+    setPlayVideo(true);
+  };
 
+  const [list, setList] = useState([]);
+  const addList = (type, id) => {
+    setList((preveMovies) => [...preveMovies, { type, id }]);
+  };
+  console.log("list", imageURL + data.data?.poster_path);
 
-  const [playVideo,setPlayVideo] = useState(false)
-  const [playVideoId,setPlayVideoId] = useState("")
-  const handlePlayVideo = (data)=>{
-    setPlayVideoId(data)
-    setPlayVideo(true)
-  }
-
-
-
-  const [list, setList] = useState([])
-  const addList = (type,id)=>{
-    setList((preveMovies)=>[...preveMovies, {type,id}])
-  }
-  // console.log("list",list)
-  
-  console.log("img data", similarData);
-  
   return (
     <div className="detail-page">
       <SideNav />
       <div className="trailer">
-        <img src={imageURL + data.data?.backdrop_path} />
+        <img src={data.data?.backdrop_path ? imageURL + data.data?.backdrop_path : imageURL + data.data?.poster_path} />
       </div>
       <div className="black-div">
         <div className="trailer-details">
           <h1>
-            {
-            data.data?.title ||
-            data.data?.name ||
-            data.data?.original_title ||
-            data.data?.original_name}
+            {data.data?.title ||
+              data.data?.name ||
+              data.data?.original_title ||
+              data.data?.original_name}
           </h1>
           <p className="bold">
-            {params?.detail} <span> | </span> {getLanguageName(data.data?.original_language)} <span> | </span> {params?.detail == "tv" ? '' : (formattedDuration)} <span> | </span> 
-            {moment(data.data?.release_date || data.data?.first_air_date).format('MMMM Do YYYY')}
+            {params?.detail} <span> | </span>{" "}
+            {getLanguageName(data.data?.original_language)} <span> | </span>{" "}
+            {params?.detail == "tv" ? "" : formattedDuration} <span> | </span>
+            {moment(
+              data.data?.release_date || data.data?.first_air_date
+            ).format("MMMM Do YYYY")}
           </p>
           <p>{data.data?.overview}</p>
-          <p className="bold">{data.data?.genres.map((genre) => genre.name).join(" | ")}</p>
+          <p className="bold">
+            {data.data?.genres.map((genre) => genre.name).join(" | ")}
+          </p>
 
           <div className="play-btn1">
-          {/* <Link to={`/${params?.detail}/${params?.id}/video`} > */}
-            <div className="play1" onClick={()=>handlePlayVideo(data)}>
+            {/* <Link to={`/${params?.detail}/${params?.id}/video`} > */}
+            <div className="play1" onClick={() => handlePlayVideo(data)}>
               <span>
                 <FontAwesomeIcon icon={faPlay} />
               </span>
               Watch Now
             </div>
-          {/* </Link> */}
-            <div className="w-list-btn1" onClick={()=>addList(params?.detail,params?.id)}>
+            {/* </Link> */}
+            <div
+              className="w-list-btn1"
+              onClick={() => addList(params?.detail, params?.id)}
+            >
               <FontAwesomeIcon icon={faPlus} />
             </div>
           </div>
         </div>
       </div>
-      <Movies data={similarData} heading={`Similar ${params?.detail}`} media_type={params?.detail} />
-      <Movies data={recommendedData} heading={"Recommendations"} media_type={params?.detail} />
+      {similarData.length != 0 && (
+        <Movies
+          data={similarData}
+          heading={`Similar ${params?.detail}`}
+          media_type={params?.detail}
+        />
+      )}
+      {recommendedData.length != 0 && (
+        <Movies
+          data={recommendedData}
+          heading={"Recommendations"}
+          media_type={params?.detail}
+        />
+      )}
 
-
-
-
-
-      {
-            playVideo && (
-              <VideoPlay close={()=>setPlayVideo(false)} />
-            )
-          }
-
-
-
+      {playVideo && <VideoPlay close={() => setPlayVideo(false)} />}
     </div>
   );
 }

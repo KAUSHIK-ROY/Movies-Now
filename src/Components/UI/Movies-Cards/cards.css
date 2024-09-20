@@ -23,6 +23,9 @@
 .cards:first-child:hover{
     transform: translateX(100px);
 }
+.cards:last-child:hover{
+    transform: translateX(-100px);
+}
 
 .v-card img{
     width: 100%;
@@ -89,4 +92,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.b-card button:hover{
+    transform: scale(1.1);
+}
+.b-card button:active{
+    transform: scale(1);
 }

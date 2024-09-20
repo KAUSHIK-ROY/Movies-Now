@@ -5,6 +5,7 @@
     /* align-items: center; */
     flex-direction: column;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 .movies-all .component-name{
     height: 10vh;

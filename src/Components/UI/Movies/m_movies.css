@@ -12,3 +12,10 @@
 .m-movies::-webkit-scrollbar{    
     display: none;
 }
+
+.not-found{
+    position: relative;
+    width: 85.6vw;
+    display: flex;
+    justify-content: center;
+}

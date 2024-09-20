@@ -12,21 +12,30 @@ export default function M_cards({ data, media_type }) {
   const mediaType = data.media_type ?? media_type;
   const { getLanguageName } = useFetchLanguage();
 
+  if (mediaType === "person") {
+    return null; 
+  }
+  if ( !data?.poster_path && !data?.backdrop_path){
+    return null;
+  }
+
+  // console.log(data)
+
   return (
     <div className="m-cards">
       <div className="mv-card">
-        {data?.poster_path ? (
-          <img src={imageURL + data?.poster_path} alt=""/>
+        {data?.poster_path || data?.backdrop_path ? (
+          <img src={data?.poster_path ? imageURL + data?.poster_path : imageURL + data?.backdrop_path } alt=""/>
         ) : (
           `not found`
         )}
       </div>
       <div className="mb-card">
-        {data?.backdrop_path ? (
+        {data?.backdrop_path || data?.poster_path ? (
           <>
             <Link to={"/" + mediaType + "/" + data.id}>
-              <img src={imageURL + data?.backdrop_path} />
-              <Link to={`/${mediaType}/${data.id}/video`}>
+            <img src={data?.backdrop_path ? imageURL + data.backdrop_path : imageURL + data?.poster_path} alt="" />
+            <Link to={`/${mediaType}/${data.id}/video`}>
               <button>
                 <FontAwesomeIcon icon={faPlay} />
               </button>
