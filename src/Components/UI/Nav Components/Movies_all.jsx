@@ -21,7 +21,7 @@ export default function Movies_all() {
   useEffect(()=>{
     fetchConfiguration()
   },[])
-  const { data: popularShowData } = useFetch("/discover/movie");
+  const { data: popularShowData } = useFetch(`/discover/movie?&page=${1}`);
 
   return (
     <div className="movies-all">

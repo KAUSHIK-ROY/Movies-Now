@@ -1,9 +1,9 @@
 .search-page{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
 }
 .search-div{
     height: 7vh;
@@ -45,6 +45,7 @@
 
 .s-movies{
     margin-top: 14.5vh;
+    height: 100%;
     width: auto;
     margin-left: 7.2vmax;
     left: 3.5vw;

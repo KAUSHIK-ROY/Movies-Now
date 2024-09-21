@@ -47,17 +47,10 @@ export default function Promotion() {
 
 
   const dispatch = useDispatch();
-  // console.log("b data me", getCertificationName)
-  // const [list, setList] = useState([])
   const addList = (e, type,id)=>{
     e.preventDefault();
     dispatch(setWatchList(type,id))
   }
-  // console.log("list",list)
-
-  
-
-
 
   return (
     <>

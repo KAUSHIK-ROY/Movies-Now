@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import "./genrePage.css"
 import SideNav from './UI/SideNav'
 import { useParams } from 'react-router-dom'
-import M_movies from './UI/Movies/M_movies'
-import useFetch from '../Hooks/useFetch'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setImageURL } from '../Redux/movieSlice'
+import Loading from './UI/Loading'
+const M_movies = React.lazy(() => import('./UI/Movies/M_movies'));
 
 export default function GenrePage() {
   const [allMovies, setAllMovies] = useState(true)
+  const [page, setPage] = useState(1)
+  const [movies, setMovies] = useState([])  // Store movies/tv data here
+
+
   const handleTvMovies = ()=>{
     setAllMovies(!allMovies)
+    setPage(1)  // Reset page when toggling between Movies and TV Shows
+    setMovies([]) 
   }
   const params = useParams()
   const dispatch = useDispatch()
@@ -27,8 +33,39 @@ export default function GenrePage() {
     fetchConfiguration()
   },[])
 
-  const { data : movieGenreData} = useFetch(`/discover/movie?with_genres=${params?.id}`)
-  const { data : tvGenreData} = useFetch(`/discover/tv?with_genres=${params?.id}`)
+  const fetchMovies = async () => {
+    try {
+      const mediaType = allMovies ? 'movie' : 'tv'
+      const response = await axios.get(`/discover/${mediaType}?with_genres=${params?.id}&page=${page}`)
+      setMovies((prevMovies) => [...prevMovies, ...response.data.results]) 
+    } catch (error) {
+      console.log("Error", error)
+    }
+  }
+
+  useEffect(() => {
+    setPage(1)
+    setMovies([]) 
+    fetchMovies()
+  }, [params?.id, allMovies])
+
+  useEffect(() => {
+    fetchMovies()
+  }, [page, allMovies, params?.id])
+
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      setPage((preve) => preve + 1);
+    }
+  };
+  
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Clean up on unmount
+    };
+  }, []);
 
   // console.log("name", params)
   
@@ -44,12 +81,10 @@ export default function GenrePage() {
       </label>
       <span className={`switch-label ${!allMovies ? "active" : ""}`}>TV Shows</span>
     </div>
-      { allMovies ?
-      (<M_movies data={movieGenreData} heading={""} media_type={"movie"}/>)
-      :
-      (<M_movies data={tvGenreData} heading={""} media_type={"tv"}/>)
-}
+    <Suspense fallback={<Loading/>}>
+      <M_movies data={movies} heading={""} media_type={allMovies ? "movie" : "tv"}/>
 
+    </Suspense>
     </div>
   )
 }
