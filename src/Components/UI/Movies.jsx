@@ -2,7 +2,7 @@ import React, { Suspense, useRef } from "react";
 import "./movies.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import Loading from "./Loading";
+import Loading from "./Skeleton-loading/Loading";
 const Cards = React.lazy(()=> import ("./Movies-Cards/Cards"));
 
 export default function Movies({data=[],heading,media_type,myVideo}) {

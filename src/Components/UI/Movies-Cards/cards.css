@@ -6,6 +6,7 @@
     position: relative;
     top: 2vh;
     overflow: hidden;
+    background-color: #303030;
 }
 
 .cards:hover {
@@ -100,4 +101,46 @@
 }
 .b-card button:active{
     transform: scale(1);
+}
+
+
+
+
+
+@media (width < 481px) and (hover:none){
+    .cards{
+        height: 180px;
+        width: 120px;
+    }
+    .v-card img{
+        height: 180px;
+        width: 120px;
+    }
+    .b-card{
+        display: none;
+    }
+/* } */
+
+/* @media (hover:none){ */
+    .cards:hover{
+        height: 180px;
+        width: 120px;
+        margin-left: 0;
+        margin-right: 0;
+        top: 2vh;
+        border-radius: 0;
+    }
+    .cards:hover .b-card{
+        box-shadow: none;
+        opacity: 0;
+    }
+    .cards:hover .v-card{
+        opacity: 1;
+    }
+    .cards:first-child:hover{
+        transform: none;
+    }
+    .cards:last-child:hover{
+        transform: none;
+    }
 }

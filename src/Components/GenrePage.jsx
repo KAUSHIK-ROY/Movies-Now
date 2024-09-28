@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setImageURL } from '../Redux/movieSlice'
-import Loading from './UI/Loading'
+import Loading from './UI/Skeleton-loading/Loading'
 const M_movies = React.lazy(() => import('./UI/Movies/M_movies'));
 
 export default function GenrePage() {

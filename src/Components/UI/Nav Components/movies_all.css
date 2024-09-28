@@ -16,3 +16,9 @@
     background-color: red;
     margin-bottom: 3vh;
 }
+
+@media (width < 481px) {
+    .movies-all{
+        height: 92vh;
+    }
+}

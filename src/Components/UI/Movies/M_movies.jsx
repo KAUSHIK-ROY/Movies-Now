@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./m_movies.css";
-import Loading from "../Loading";
+import M_cardLoading from "../Skeleton-loading/M_cardLoading";
+
 const M_cards = React.lazy(() => import("../Movies-Cards/M_cards"));
 
 export default function M_movies({ data, media_type }) {
@@ -28,7 +29,7 @@ export default function M_movies({ data, media_type }) {
   }, [data]);
 
   if (loading) {
-    return <Loading />;
+    return <M_cardLoading />;
   }
 
   return (

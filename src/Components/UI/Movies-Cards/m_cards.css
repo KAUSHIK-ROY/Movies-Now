@@ -14,6 +14,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    background-color: #303030;
 }
 .mv-card img{
     width: 166px;
@@ -73,4 +74,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (width < 481px) {
+    .m-cards{
+        height: 201.2px;
+        width: 134px;
+    }
+    .mv-card img{
+        height: 201.2px;
+        width: 134px;
+    }
+    .mb-card{
+        display: none;
+    }
+}
+
+@media (hover : none){
+    .m-cards:hover .mb-card{
+        transform: scale(0);
+        opacity: 0;
+    }
 }

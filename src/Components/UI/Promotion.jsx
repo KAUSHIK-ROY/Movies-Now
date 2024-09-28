@@ -13,6 +13,7 @@ import moment from "moment";
 import useFetchLanguage from "../../Hooks/useFetchLanguage";
 import useFetchGenres from "../../Hooks/useFetchGenres";
 import { setWatchList } from "../../Redux/movieSlice";
+import BannerLoading from "./Skeleton-loading/BannerLoading";
 // import useFetchCertifications from "../../Hooks/useFetchCertifications";
 
 export default function Promotion() {
@@ -23,6 +24,7 @@ export default function Promotion() {
   // const { getCertificationName, loading: certLoading  } = useFetchCertifications();
 
   const [currentBanner, setCurrentBanner] = useState(0);
+  const [loading, setLoading] = useState(true); 
   const nextBanner = () => {
     if (currentBanner < bannerData.length - 1) {
       setCurrentBanner((preve) => preve + 1);
@@ -35,6 +37,9 @@ export default function Promotion() {
   };
 
   useEffect(() => {
+    if (bannerData.length > 0) {
+      setLoading(false); // Set loading to false when data is loaded
+    }
     const interval = setInterval(() => {
       if (currentBanner < bannerData.length - 1) {
         nextBanner();
@@ -51,6 +56,10 @@ export default function Promotion() {
     e.preventDefault();
     dispatch(setWatchList(type,id))
   }
+
+  // if (loading) {
+  //   return <BannerLoading/>; 
+  // }
 
   return (
     <>
@@ -77,7 +86,7 @@ export default function Promotion() {
                          {/* {certLoading ? "Loading certifications..." : getCertificationName(data.media_type, "US", data.certification)} | */}
                         {moment(data.release_date || data.first_air_date).format('YYYY')}
                       </p>
-                      <p>{data.overview}</p>
+                      <p className="overview">{data.overview}</p>
                       <p className="bold">{getGenreNames(data.genre_ids)}</p>
                       <div className="play-btn">
                         <Link to={`/${data?.media_type}/${data.id}/video`} >

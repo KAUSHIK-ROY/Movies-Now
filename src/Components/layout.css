@@ -21,3 +21,9 @@
     background-color: rgba(100, 100, 100, 0.6); 
     border-radius: 10px; 
 }
+
+@media (width < 481px) {
+    .layout{
+        height: 92vh;
+    }
+}

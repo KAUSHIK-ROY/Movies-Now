@@ -19,3 +19,13 @@
     display: flex;
     justify-content: center;
 }
+
+@media (width < 481px) {
+    .m-movies{
+        width: 100vw;
+        margin-left: 0;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 1vmin;
+        row-gap: 1vmin;
+    }
+}

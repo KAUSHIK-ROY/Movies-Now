@@ -12,3 +12,10 @@ body{
 a{
     text-decoration: none;
 }
+
+@media (width < 481px) {
+
+    ::-webkit-scrollbar{
+      display: none;
+    }
+}

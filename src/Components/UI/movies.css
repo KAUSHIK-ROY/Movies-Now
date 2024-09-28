@@ -55,3 +55,27 @@
   opacity: 1;
 }
 
+
+
+@media (width < 481px) {
+    .movies{
+        height: 28vh;
+        width: 100vw;
+        margin-left: 0;
+    }
+    .genre{
+        height: 28vh;
+    }
+    .genre h2{
+        padding-left: 3vw;
+    }
+    .all-cards{
+        width: 100vw;
+        min-height: 23vh;
+        overflow-x: auto;
+    }
+    .btn1{
+        display: none;
+    }
+}
+

@@ -8,8 +8,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import M_cards from "./UI/Movies-Cards/M_cards";
 import { useDispatch } from "react-redux";
 import { setImageURL } from "../Redux/movieSlice";
-import Loading from "./UI/Loading";
 import useFetch from "../Hooks/useFetch";
+import Loading from "./UI/Skeleton-loading/Loading";
 
 export default function SearchPage() {
   const location = useLocation();

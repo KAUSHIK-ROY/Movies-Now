@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import "./cards.css";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,28 +6,37 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import useFetchLanguage from "../../../Hooks/useFetchLanguage";
-import Loading from "../Loading";
+import Loading from "../Skeleton-loading/Loading";
 
 export default function Cards({ data, media_type }) {
+
+  const [loading, setLoading] = useState(true);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
   const mediaType = data.media_type ?? media_type;
   const { getLanguageName } = useFetchLanguage();
 
+  
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
+  
+  
   if ( !data?.poster_path && !data?.backdrop_path){
     return null;
   }
-  
-  
-  return (
+
+  return loading ? (
+    <Loading /> // Show loading component while loading is true
+  ) : (
     <div className="cards">
       <div className="v-card">
-      <Suspense fallback={<Loading/>}>
         {data?.poster_path || data?.backdrop_path ? (
           <img src={data?.poster_path ? imageURL + data?.poster_path : imageURL + data?.backdrop_path } alt=""/>
         ) : (
           "not found"
         )}
-        </Suspense>
       </div>
       <div className="b-card">
         {data?.backdrop_path || data?.poster_path ? (

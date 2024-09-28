@@ -59,3 +59,23 @@
 .s-movies::-webkit-scrollbar{    
     display: none;
 }
+
+
+
+@media (width < 481px) {
+    .search-page{
+        height: 92vh;
+        width: 100vw;
+    }
+    .search-div{
+        width: 80vw;
+        height: 6vh;
+    }
+    .s-movies{
+        width: 100vw;
+        margin-left: 0;
+        grid-template-columns: repeat(3, auto);
+        column-gap: 1vmin;
+        row-gap: 1vmin;
+    }
+}

@@ -1,0 +1,35 @@
+.m-moviesLoading{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.m-cardLoading{
+    height: 80%;
+    width: 92%;
+    position: absolute;
+    border-radius: 10px;
+    left: 7.5vw;
+    display: grid;
+    grid-template-columns: repeat(7, 11.7%);
+    column-gap: 30px;
+    row-gap: 30px;
+    align-content: center;
+}
+.divLoading{
+    width: 166px;
+    height: 250px;
+    border-radius: 5px;
+    background-color: #303030;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+@keyframes pulse{
+    0% {
+      background-color: #444;
+    }
+    50% {
+      background-color: #555;
+    }
+    100% {
+      background-color: #444;
+    }
+  }
