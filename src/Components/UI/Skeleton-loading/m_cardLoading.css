@@ -1,10 +1,9 @@
 .m-moviesLoading{
     height: 100%;
     width: 100%;
-    position: relative;
 }
 .m-cardLoading{
-    height: 80%;
+    height: 75%;
     width: 92%;
     position: absolute;
     border-radius: 10px;

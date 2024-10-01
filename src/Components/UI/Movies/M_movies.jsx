@@ -4,7 +4,7 @@ import M_cardLoading from "../Skeleton-loading/M_cardLoading";
 
 const M_cards = React.lazy(() => import("../Movies-Cards/M_cards"));
 
-export default function M_movies({ data, media_type }) {
+export default function M_movies({ data, media_type, setPage }) {
   const [dataFound, setDataFound] = useState(true);
   const [loading, setLoading] = useState(true);
   const isFirstRender = useRef(true);
@@ -23,10 +23,23 @@ export default function M_movies({ data, media_type }) {
         setLoading(false); // Hide the spinner after first data load
         isFirstRender.current = false; // Mark first render as done
       }
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [data]);
+
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      setPage((preve) => preve + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   if (loading) {
     return <M_cardLoading />;

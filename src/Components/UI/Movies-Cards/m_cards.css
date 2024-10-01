@@ -79,11 +79,11 @@
 @media (width < 481px) {
     .m-cards{
         height: 201.2px;
-        width: 134px;
+        width: 32.3vw;
     }
     .mv-card img{
         height: 201.2px;
-        width: 134px;
+        width: 100%;
     }
     .mb-card{
         display: none;

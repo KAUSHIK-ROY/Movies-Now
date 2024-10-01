@@ -87,7 +87,7 @@
         bottom: 0;
         top: auto;
         justify-content: center;
-        /* pointer-events: auto; */
+        background-color: black;
     }
     .sideNav ul{
         height: 8vh;

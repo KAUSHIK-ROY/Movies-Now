@@ -11,7 +11,7 @@ const M_movies = React.lazy(() => import('./UI/Movies/M_movies'));
 export default function GenrePage() {
   const [allMovies, setAllMovies] = useState(true)
   const [page, setPage] = useState(1)
-  const [movies, setMovies] = useState([])  // Store movies/tv data here
+  const [movies, setMovies] = useState([]) 
 
 
   const handleTvMovies = ()=>{
@@ -53,19 +53,19 @@ export default function GenrePage() {
     fetchMovies()
   }, [page, allMovies, params?.id])
 
-  const handleScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      setPage((preve) => preve + 1);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  //     setPage((preve) => preve + 1);
+  //   }
+  // };
   
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll); // Clean up on unmount
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   // console.log("name", params)
   
@@ -82,7 +82,7 @@ export default function GenrePage() {
       <span className={`switch-label ${!allMovies ? "active" : ""}`}>TV Shows</span>
     </div>
     <Suspense fallback={<Loading/>}>
-      <M_movies data={movies} heading={""} media_type={allMovies ? "movie" : "tv"}/>
+      <M_movies data={movies} heading={""} media_type={allMovies ? "movie" : "tv"} setPage={setPage}/>
 
     </Suspense>
     </div>
