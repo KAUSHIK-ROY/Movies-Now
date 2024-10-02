@@ -172,6 +172,7 @@
     .promotion{
         height: 45vh;
         width: 100vw;
+        overflow-x: auto;
     }
     .details{
         height: 45vh;

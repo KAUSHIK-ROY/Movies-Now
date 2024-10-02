@@ -64,7 +64,7 @@
 
 @media (width < 481px) {
     .search-page{
-        height: 92vh;
+        /* height: 92vh; */
         width: 100vw;
     }
     .search-div{
@@ -73,6 +73,7 @@
     }
     .s-movies{
         width: 100vw;
+        margin-top: 10vh;
         margin-left: 0;
         grid-template-columns: repeat(3, auto);
         column-gap: 1vmin;

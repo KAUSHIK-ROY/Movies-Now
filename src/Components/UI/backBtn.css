@@ -1,0 +1,12 @@
+.back-btn{
+    height: 4.5vmax;
+    width: 9vmax;
+    /* background-color: rgb(26, 129, 218); */
+    border-radius: 10px;
+    margin: 2vw 0 2vw 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vmax;
+    gap: 2.5vw;
+}

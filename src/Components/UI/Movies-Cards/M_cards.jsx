@@ -13,44 +13,61 @@ export default function M_cards({ data, media_type }) {
   const { getLanguageName } = useFetchLanguage();
 
   if (mediaType === "person") {
-    return null; 
+    return null;
   }
-  if ( !data?.poster_path && !data?.backdrop_path){
+  if (!data?.poster_path && !data?.backdrop_path) {
     return null;
   }
 
   // console.log(data)
 
   return (
-    <div className="m-cards">
-      <div className="mv-card">
-        {data?.poster_path || data?.backdrop_path ? (
-          <img src={data?.poster_path ? imageURL + data?.poster_path : imageURL + data?.backdrop_path } alt=""/>
-        ) : (
-          `not found`
-        )}
-      </div>
-      <div className="mb-card">
-        {data?.backdrop_path || data?.poster_path ? (
-          <>
-            <Link to={"/" + mediaType + "/" + data.id}>
-            <img src={data?.backdrop_path ? imageURL + data.backdrop_path : imageURL + data?.poster_path} alt="" />
-            <Link to={`/${mediaType}/${data.id}/video`}>
-              <button>
-                <FontAwesomeIcon icon={faPlay} />
-              </button>
+    <Link to={"/" + mediaType + "/" + data.id}>
+      <div className="m-cards">
+        <div className="mv-card">
+          {data?.poster_path || data?.backdrop_path ? (
+            <img
+              src={
+                data?.poster_path
+                  ? imageURL + data?.poster_path
+                  : imageURL + data?.backdrop_path
+              }
+              alt=""
+            />
+          ) : (
+            `not found`
+          )}
+        </div>
+        <div className="mb-card">
+          {data?.backdrop_path || data?.poster_path ? (
+            <>
+              <img
+                src={
+                  data?.backdrop_path
+                    ? imageURL + data.backdrop_path
+                    : imageURL + data?.poster_path
+                }
+                alt=""
+              />
+              <Link to={`/${mediaType}/${data.id}/video`}>
+                <button>
+                  <FontAwesomeIcon icon={faPlay} />
+                </button>
               </Link>
               <h1>{data?.title || data?.name}</h1>
               <p>
-                {mediaType} | {getLanguageName(data.original_language)} | {moment(data.release_date || data.first_air_date).format('YYYY')}
+                {mediaType} | {getLanguageName(data.original_language)} |{" "}
+                {moment(data.release_date || data.first_air_date).format(
+                  "YYYY"
+                )}
               </p>
               <p>{data?.overview}</p>
-            </Link>
-          </>
-        ) : (
-          `not found`
-        )}
+            </>
+          ) : (
+            `not found`
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

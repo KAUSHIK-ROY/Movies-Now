@@ -6,6 +6,9 @@
     /* scrollbar-gutter: stable; */
     scroll-behavior: smooth;
 }
+.mobile-logo{
+    display: none;
+}
 
 ::-webkit-scrollbar{     
     width: 8px;
@@ -26,4 +29,17 @@
     .layout{
         height: 92vh;
     }
+    .mobile-logo{
+        top:1.5vh ;
+        left: 2vw;
+        display: flex;
+        position: fixed;
+        z-index: 1000;
+        pointer-events: none;
+
+    }
+    .mobile-logo img{
+        height: 2.3vh;
+    }
+    
 }

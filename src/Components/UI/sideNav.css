@@ -101,17 +101,16 @@
         width: 20vw;
         flex-direction: column;
         justify-content: center;
-        /* background-color: aqua; */
         transition: none;
     }
-    .sideNav ul a:nth-child(1) {
+    .sideNav ul li h4{
+        display: none;
+    }
+    .sideNav ul a:nth-child(6) {
         display: none;
     }
     .logo{
-        left: 3vw;
-    }
-    .logo img{
-        height: 2.3vh;
+        display: none;
     }
     
 }

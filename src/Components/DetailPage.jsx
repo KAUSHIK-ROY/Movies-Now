@@ -13,8 +13,11 @@ import moment from "moment";
 import useFetchLanguages from "../Hooks/useFetchLanguage";
 import VideoPlay from "./VideoPlay";
 import useFetch from "../Hooks/useFetch";
+import BackBtn from "./UI/BackBtn";
 
 export default function DetailPage() {
+
+  const [mobile, setMobile]= useState(false)
   const params = useParams();
   const data = useFetchDetails(`/${params?.detail}/${params?.id}`);
   const imageURL = useSelector((state) => state.moviesData.imageURL);
@@ -60,11 +63,24 @@ export default function DetailPage() {
   const addList = (type, id) => {
     setList((preveMovies) => [...preveMovies, { type, id }]);
   };
-  console.log("list", imageURL + data.data?.poster_path);
+  // console.log("list", imageURL + data.data?.poster_path);
 
+  useEffect(()=>{
+    const handleSize = ()=>{
+      setMobile(window.innerWidth < 481);
+    }
+    handleSize()
+    window.addEventListener('resize', handleSize)
+
+    return ()=>{
+      window.removeEventListener('resize',handleSize)
+    }
+  },[])
+ 
   return (
     <div className="detail-page">
-      <SideNav />
+      {mobile ? 
+      (<BackBtn/>) : (<SideNav />)}
       <div className="trailer">
         <img src={data.data?.backdrop_path ? imageURL + data.data?.backdrop_path : imageURL + data.data?.poster_path} />
       </div>

@@ -3,6 +3,7 @@ import "./layout.css";
 import SideNav from "./UI/SideNav";
 import useFetch from "../Hooks/useFetch";
 import BannerLoading from "./UI/Skeleton-loading/BannerLoading";
+import logo from "./logo-pics/logo.png";
 const Promotion = lazy(() => import("./UI/Promotion"));
 const Movies = lazy(() => import("./UI/Movies"));
 
@@ -26,6 +27,9 @@ export default function Layout() {
   return (
     <div className="layout">
       <Suspense fallback={<BannerLoading/>}>
+      <div className="mobile-logo">
+        <img src={logo} alt="" />
+      </div>
         <Promotion />
         <SideNav />
         <Movies data={popularShowData} heading={"Popular Movies"} media_type={"movie"} />

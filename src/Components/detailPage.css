@@ -1,6 +1,7 @@
 .detail-page{
     height: 100vh;
     width: 100%;
+    position: relative;
 }
 .trailer{
     height: 100vh;
@@ -34,7 +35,6 @@
 }
 .trailer-details h1{
     font-size: 50px;
-    /* background-color: rebeccapurple; */
 }
 .trailer-details p span{
     color: rgba(255, 255, 255, 0.332);
@@ -93,4 +93,45 @@
 .w-list-btn1:hover{
     background: white;
     color:  #00bdff;
+}
+
+@media (width < 481px) and (hover:none){
+    .trailer{
+        height: auto;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .trailer img{
+        height: 25vh;
+        width: 98vw;
+        border-radius:9px;
+    }
+    .black-div{
+        margin: 3vh 0 3vh 0;
+        height: auto;
+        width: 100vw;
+        background: transparent;
+    }
+    .trailer-details{
+        top: 0;
+        height: auto;
+        width: 90vw;
+        margin-left: 5vw;
+        gap: 1.5vh;
+    }
+    .play-btn1{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .play1{
+        width: 76vw;
+    height: 6vh;
+    }
+    .w-list-btn1{
+        height: 6vh;
+        width: 6vh;
+    }
 }

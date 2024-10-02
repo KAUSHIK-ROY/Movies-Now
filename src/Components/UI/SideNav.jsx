@@ -18,19 +18,6 @@ export default function SideNav() {
     <div className="nav">
       <div className="sideNav">
         <ul>
-        <NavLink
-            className={(e) => {
-              return e.isActive ? "active-color" : "fade-color";
-            }}
-            to={"/search"}
-          >
-            <li>
-              <div className="idiv">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-              Search
-            </li>
-          </NavLink>
           <NavLink
             className={(e) => {
               return e.isActive ? "active-color" : "fade-color";
@@ -41,7 +28,20 @@ export default function SideNav() {
               <div className="idiv">
                 <FontAwesomeIcon icon={faHouse} />
               </div>
-              Home
+             <h4>Home</h4>
+            </li>
+          </NavLink>
+          <NavLink
+            className={(e) => {
+              return e.isActive ? "active-color" : "fade-color";
+            }}
+            to={"/search"}
+          >
+            <li>
+              <div className="idiv">
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+              <h4>Search</h4>
             </li>
           </NavLink>
           <NavLink
@@ -54,7 +54,7 @@ export default function SideNav() {
               <div className="idiv">
                 <FontAwesomeIcon icon={faShapes} />
               </div>
-              Categories
+              <h4>Categories</h4>
             </li>
           </NavLink>
           <NavLink
@@ -67,7 +67,7 @@ export default function SideNav() {
               <div className="idiv">
                 <FontAwesomeIcon icon={faClapperboard} />
               </div>
-              Movies
+              <h4>Movies</h4>
             </li>
           </NavLink>
           <NavLink
@@ -80,7 +80,7 @@ export default function SideNav() {
               <div className="idiv">
                 <FontAwesomeIcon icon={faBookmark} />
               </div>
-              Watchlist
+              <h4>Watchlist</h4>
             </li>
           </NavLink>
           <NavLink
@@ -93,7 +93,7 @@ export default function SideNav() {
               <div className="idiv">
                 <FontAwesomeIcon icon={faUser} />
               </div>
-              Account
+              <h4>Account</h4>
             </li>
           </NavLink>
         </ul>
