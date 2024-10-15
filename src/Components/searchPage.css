@@ -79,4 +79,13 @@
         column-gap: 1vmin;
         row-gap: 1vmin;
     }
+    .search-div{
+        width: 90vw; 
+    }
+    .search-div input{
+        width: 78vw;
+    }
+    .search-div button{
+        width: 12vw;
+    }
 }

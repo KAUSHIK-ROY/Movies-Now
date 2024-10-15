@@ -65,7 +65,7 @@
 .play{
     color: white;
     text-shadow: none;
-    width: 10vw;
+    width: 19vw;
     height: 6.5vh;
     border-radius: 5px;
     display: flex;
@@ -83,7 +83,7 @@
 
 .w-list-btn{
     color: white;
-    width: 3vw;
+    width: 6.5vh;
     height: 6.5vh;
     border-radius: 5px;
     display: flex;

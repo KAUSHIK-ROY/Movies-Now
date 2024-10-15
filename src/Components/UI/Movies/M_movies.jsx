@@ -9,24 +9,16 @@ export default function M_movies({ data, media_type, setPage }) {
   const [loading, setLoading] = useState(true);
   const isFirstRender = useRef(true);
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      setLoading(true);
-    }
-    const timer = setTimeout(() => {
-      if (!data || data.length === 0) {
-        setDataFound(false);
-      } else {
-        setDataFound(true);
-      }
-      if (isFirstRender.current) {
-        setLoading(false); // Hide the spinner after first data load
-        isFirstRender.current = false; // Mark first render as done
-      }
-    }, 3000);
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setLoading(false);
+      setDataFound(data && data.length > 0 );
+      isFirstRender.current = false;
 
-    return () => clearTimeout(timer);
+    },1000);
+    return () => clearTimeout(timer); 
   }, [data]);
+
 
   const handleScroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -53,7 +45,7 @@ export default function M_movies({ data, media_type, setPage }) {
         })
       ) : (
         <h1 className="not-found">
-          Oops! We couldn't find any results. Try exploring other genres!
+          Oops! We couldn't find any results. Try again!
         </h1>
       )}
     </div>

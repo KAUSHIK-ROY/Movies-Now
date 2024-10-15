@@ -3,7 +3,7 @@
   width: 100%;
 }
 .genre-h1 {
-  height: 10vh;
+  height: 8vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +48,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #767676;
   transition: 0.4s;
   border-radius: 34px;
 }

@@ -5,22 +5,25 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setImageURL } from '../Redux/movieSlice'
-import Loading from './UI/Skeleton-loading/Loading'
+import M_cardLoading from './UI/Skeleton-loading/M_cardLoading'
 const M_movies = React.lazy(() => import('./UI/Movies/M_movies'));
 
 export default function GenrePage() {
   const [allMovies, setAllMovies] = useState(true)
   const [page, setPage] = useState(1)
-  const [movies, setMovies] = useState([]) 
+  const [movies, setMovies] = useState([])
+  const [loading, setLoading] = useState(true) 
 
 
   const handleTvMovies = ()=>{
     setAllMovies(!allMovies)
-    setPage(1)  // Reset page when toggling between Movies and TV Shows
+    setPage(1) 
     setMovies([]) 
+    setLoading(true)
   }
   const params = useParams()
   const dispatch = useDispatch()
+
   const fetchConfiguration = async()=>{
     try{
       const response = await axios.get("/configuration")
@@ -38,8 +41,10 @@ export default function GenrePage() {
       const mediaType = allMovies ? 'movie' : 'tv'
       const response = await axios.get(`/discover/${mediaType}?with_genres=${params?.id}&page=${page}`)
       setMovies((prevMovies) => [...prevMovies, ...response.data.results]) 
+      setLoading(false)
     } catch (error) {
       console.log("Error", error)
+      setLoading(false)
     }
   }
 
@@ -53,21 +58,6 @@ export default function GenrePage() {
     fetchMovies()
   }, [page, allMovies, params?.id])
 
-  // const handleScroll = () => {
-  //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-  //     setPage((preve) => preve + 1);
-  //   }
-  // };
-  
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-  // console.log("name", params)
   
   return (
     <div className="genrePage">
@@ -81,10 +71,12 @@ export default function GenrePage() {
       </label>
       <span className={`switch-label ${!allMovies ? "active" : ""}`}>TV Shows</span>
     </div>
-    <Suspense fallback={<Loading/>}>
+    {loading ? ( <M_cardLoading/> ) : (
+    <Suspense fallback={<M_cardLoading/>}>
       <M_movies data={movies} heading={""} media_type={allMovies ? "movie" : "tv"} setPage={setPage}/>
 
     </Suspense>
+    )}
     </div>
   )
 }

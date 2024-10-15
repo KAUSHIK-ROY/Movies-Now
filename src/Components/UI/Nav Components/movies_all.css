@@ -8,7 +8,7 @@
     scroll-behavior: smooth;
 }
 .movies-all .component-name{
-    height: 10vh;
+    height: 8vh;
     display: flex;
     flex-shrink: 0;
     align-items: center;

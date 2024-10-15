@@ -31,4 +31,22 @@
     100% {
       background-color: #444;
     }
+}
+
+@media (width < 481px){
+  .m-moviesLoading{
+    height: 100vw;
+}
+  .m-cardLoading{
+    height: auto;
+    width: auto;
+    left: 0;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 1vw;
+    row-gap: 2vw;
   }
+  .divLoading{
+    height: 201.2px;
+    width: 32.3vw;
+  }
+}

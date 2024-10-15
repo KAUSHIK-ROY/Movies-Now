@@ -108,7 +108,7 @@
 
 
 
-@media (width < 481px) and (hover:none){
+@media (width < 481px) {
     .cards{
         height: 48vmin;
         width: 32vmin;
@@ -120,12 +120,12 @@
     .b-card{
         display: none;
     }
-/* } */
+}
 
-/* @media (hover:none){ */
+@media (hover:none){
     .cards:hover{
-        height: 180px;
-        width: 120px;
+        height: 48vmin;
+        width: 32vmin;
         margin-left: 0;
         margin-right: 0;
         top: 2vh;
