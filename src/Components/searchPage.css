@@ -84,6 +84,7 @@
     }
     .search-div input{
         width: 78vw;
+        font-size: 18px;
     }
     .search-div button{
         width: 12vw;

@@ -21,6 +21,7 @@
     grid-template-columns: repeat(5, minmax(91px, 1fr));
     column-gap: 20px;
     row-gap: 30px;
+    padding-bottom: 10vh;
 }
 .genre-btn{
     height: 120px;
@@ -46,15 +47,15 @@
 
 @media (width < 481px) {
     .categories{
-        height: 92vh;
+        height: auto;
         width: 100vw;
     }
     .categories h1{
         margin-bottom: 2vh;
-
+        background-color: transparent;
     }
     .genre-div{
-        /* height: 100vh; */
+        height: auto;
         width: 100%;
         margin-left: 0;
         grid-template-columns: repeat(2, auto);

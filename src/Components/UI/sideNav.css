@@ -28,8 +28,9 @@
 }
 
 .sideNav:hover{
-    width: 14vw;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.9) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.1) 90%, rgba(0, 0, 0, 0) 100%);
+    width: 100vw;
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.9) 65%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.419) 90%, rgba(0, 0, 0, 0) 100%); */
+    background: linear-gradient(to right, rgba(3, 3, 3, 0.896) 16.24%, rgba(15, 16, 20, 0) 98.46%);
 }
 .sideNav:hover ul{
     width: 14vw;
@@ -81,6 +82,9 @@
 }
 
 @media (width < 481px) {
+    .nav{
+        background-color: black;
+    }
     .sideNav{
         height: 8vh;
         width: 100vw;
@@ -120,6 +124,7 @@
         background: inherit;
     }
     .sideNav ul li:hover{
+        color: inherit;
         transform: none;
     }
     .sideNav:hover ul{

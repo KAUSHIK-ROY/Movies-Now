@@ -25,9 +25,14 @@
     border-radius: 10px; 
 }
 
+
+.home-movies{
+    padding-bottom: 12vh;
+}
+
 @media (width < 481px) {
     .layout{
-        height: 92vh;
+        height: 100dvh;
     }
     .mobile-logo{
         top:1.5vh ;

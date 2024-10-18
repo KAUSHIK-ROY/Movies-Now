@@ -1,26 +1,32 @@
 .video-play{
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
     height: 100vh;
     width: 100vw;
     z-index: 1000;
-    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 iframe{
-    height: 90%;
-    width: 90%;
+    height: 100vh;
+    width: 100vw;
     background-color: black;
     border: none;
 }
-.close-btn{
-    color: rgb(0, 0, 0);
-    position: absolute;
-    background-color: transparent;
-    border: none;
-    font-size: 25px;
-    top: 5%;
-    right: 3.5%;
+.mobile-back{
+        position: absolute; /* Position it relative to the nearest positioned ancestor */
+        top: 20px; /* Adjust the top margin as needed */
+        right: 20px; /* Adjust the right margin as needed */
+        z-index: 1000; /* Make sure it stays on top */
+}
+
+@media (width < 481px ){
+    .video-play{
+        height: 85vh;
+    }
+    iframe{
+        height: 25vh;
+        width: 100vw;
+    }
 }

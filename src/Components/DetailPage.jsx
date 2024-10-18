@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import useFetchLanguages from "../Hooks/useFetchLanguage";
-import VideoPlay from "./VideoPlay";
+// import VideoPlay from "./VideoPlay";
 import useFetch from "../Hooks/useFetch";
 import BackBtn from "./UI/BackBtn";
 
@@ -51,13 +51,6 @@ export default function DetailPage() {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = Math.floor(totalMinutes % 60);
   const formattedDuration = `${hours}h ${minutes}m`;
-
-  const [playVideo, setPlayVideo] = useState(false);
-  const [playVideoId, setPlayVideoId] = useState("");
-  const handlePlayVideo = (data) => {
-    setPlayVideoId(data);
-    setPlayVideo(true);
-  };
 
   const [list, setList] = useState([]);
   const addList = (type, id) => {
@@ -106,14 +99,14 @@ export default function DetailPage() {
           </p>
 
           <div className="play-btn1">
-            {/* <Link to={`/${params?.detail}/${params?.id}/video`} > */}
-            <div className="play1" onClick={() => handlePlayVideo(data)}>
+            <Link to={`/${params?.detail}/${params?.id}/video`} >
+            <div className="play1" >
               <span>
                 <FontAwesomeIcon icon={faPlay} />
               </span>
               Watch Now
             </div>
-            {/* </Link> */}
+            </Link>
             <div
               className="w-list-btn1"
               onClick={() => addList(params?.detail, params?.id)}
@@ -138,7 +131,7 @@ export default function DetailPage() {
         />
       )}
 
-      {playVideo && <VideoPlay close={() => setPlayVideo(false)} />}
+      {/* {playVideo && <VideoPlay close={() => setPlayVideo(false)} />} */}
     </div>
   );
 }

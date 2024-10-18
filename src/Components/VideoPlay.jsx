@@ -2,10 +2,9 @@ import React from "react";
 import "./videoPlay.css";
 import useFetchDetails from "../Hooks/useFetchDetails";
 import { useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+// import BackBtn from "./UI/BackBtn";
 
-export default function VideoPlay({close}) {
+export default function VideoPlay() {
   const params = useParams();
 
   const { data: videoData } = useFetchDetails(
@@ -13,11 +12,9 @@ export default function VideoPlay({close}) {
   ); 
   // console.log("params", params)
   return (
-    <div className="video-play">
-      <button className="close-btn" onClick={close}><FontAwesomeIcon icon={faClose}/></button>
-    
+    <div className="video-play">  
       <iframe
-        src={`https://www.youtube.com/embed/${videoData?.results[1]?.key || videoData?.results[0]?.key}`}
+        src={`https://www.youtube.com/embed/${videoData?.results[1]?.key || videoData?.results[0]?.key}?autoplay=1&controls=1`}
         title="Movie Trailer"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

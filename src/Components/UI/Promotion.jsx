@@ -24,7 +24,7 @@ export default function Promotion() {
   // const { getCertificationName, loading: certLoading  } = useFetchCertifications();
 
   const [currentBanner, setCurrentBanner] = useState(0);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const nextBanner = () => {
     if (currentBanner < bannerData.length - 1) {
       setCurrentBanner((preve) => preve + 1);
@@ -50,15 +50,14 @@ export default function Promotion() {
     return () => clearInterval(interval);
   }, [bannerData, imageURL, currentBanner]);
 
-
   const dispatch = useDispatch();
-  const addList = (e, type,id)=>{
+  const addList = (e, type, id) => {
     e.preventDefault();
-    dispatch(setWatchList(type,id))
-  }
+    dispatch(setWatchList(type, id));
+  };
 
   // if (loading) {
-  //   return <BannerLoading/>; 
+  //   return <BannerLoading/>;
   // }
 
   return (
@@ -79,17 +78,23 @@ export default function Promotion() {
                   <div className="black">
                     <div className="banner-details">
                       <h1>
-                        {data.name || data.title || data.original_title || data.original_name}
+                        {data.name ||
+                          data.title ||
+                          data.original_title ||
+                          data.original_name}
                       </h1>
                       <p className="bold">
-                        {data.media_type} | {getLanguageName(data.original_language)} | {" "}
-                         {/* {certLoading ? "Loading certifications..." : getCertificationName(data.media_type, "US", data.certification)} | */}
-                        {moment(data.release_date || data.first_air_date).format('YYYY')}
+                        {data.media_type} |{" "}
+                        {getLanguageName(data.original_language)} |{" "}
+                        {/* {certLoading ? "Loading certifications..." : getCertificationName(data.media_type, "US", data.certification)} | */}
+                        {moment(
+                          data.release_date || data.first_air_date
+                        ).format("YYYY")}
                       </p>
                       <p className="overview">{data.overview}</p>
                       <p className="bold">{getGenreNames(data.genre_ids)}</p>
                       <div className="play-btn">
-                        <Link to={`/${data?.media_type}/${data.id}/video`} >
+                        <Link to={`/${data?.media_type}/${data.id}/video`}>
                           <div className="play">
                             <span>
                               <FontAwesomeIcon icon={faPlay} />
@@ -97,7 +102,10 @@ export default function Promotion() {
                             Watch Now
                           </div>
                         </Link>
-                        <div className="w-list-btn" onClick={(e)=>addList(e,data.media_type,data.id)}>
+                        <div
+                          className="w-list-btn"
+                          onClick={(e) => addList(e, data.media_type, data.id)}
+                        >
                           <FontAwesomeIcon icon={faPlus} />
                         </div>
                       </div>
@@ -122,7 +130,7 @@ export default function Promotion() {
                     transition: "transform 0.5s ease-in-out",
                   }}
                 >
-                  <img src={imageURL + data.backdrop_path} alt=""/>
+                  <img src={imageURL + data.backdrop_path} alt="" />
                 </div>
               );
             })}

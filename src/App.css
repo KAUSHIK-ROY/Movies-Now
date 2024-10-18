@@ -3,3 +3,9 @@
   width: 100vw;
 }
 
+@media (width < 481px ){
+  .App{
+    height: 100dvh;
+  }
+}
+

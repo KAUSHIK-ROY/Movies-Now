@@ -17,6 +17,7 @@ export default function SearchPage() {
   const [page, setPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
   const [showNotFound, setShowNotFound] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Search your fevourite movies and TV shows...");
   const navigate = useNavigate();
 
   const query = location?.search?.slice(3);
@@ -41,7 +42,7 @@ export default function SearchPage() {
     } catch (error) {
       console.log("error", error);
     }
-  };
+  }; 
 
   const dispatch = useDispatch();
   const fetchConfiguration = async () => {
@@ -85,6 +86,21 @@ export default function SearchPage() {
 
   const { data: trendingData } = useFetch("/trending/all/day");
 
+  const updatePlaceholder = () => {
+    if (window.innerWidth <481) {
+      setPlaceholder("Search movies and TV shows");
+    } else {
+      setPlaceholder("Search your fevourite movies and TV shows...");
+    }
+  };
+
+  useEffect(() => {
+    updatePlaceholder(); 
+    window.addEventListener('resize', updatePlaceholder);
+
+    return () => window.removeEventListener('resize', updatePlaceholder);
+  }, []);
+
   // console.log("data", data);
 
   return (
@@ -95,7 +111,7 @@ export default function SearchPage() {
         </button>
         <input
           type="text"
-          placeholder="Search your fevourite movies and TV shows..."
+          placeholder={placeholder}
           onChange={(e) => navigate(`/search?q=${e.target.value}`)}
           value={query?.split("%20")?.join(" ")}
         />

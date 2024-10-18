@@ -10,16 +10,15 @@
     left: 1vw;
     top: 1.5vh;
     position: absolute;
-    animation: pulse 1.5s infinite ease-in-out;
+    animation: shimmer 1.5s infinite ease-in-out;
   }
 .navbar{
   position: absolute;
   height: 48vh;
   width: 3.5vw;
-  background-color: #151515;
   left: calc((7.5vw - 3.5vw) / 2);
   top: calc((100vh - 48vh) / 2);
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
   border-radius: 10px;
 }
 .posterLoading{
@@ -28,21 +27,18 @@
     width: 90vw;
     position: absolute;
     border-radius: 10px;
-    background-color: #151515;
     left: 7.5vw;
-    animation: pulse 1.5s infinite ease-in-out;
+    animation: shimmer 1.5s infinite ease-in-out;
 }
 .detailsLoading{
     height: 45vh;
     width: 40vw;
     border-radius: 10px;
-    /* animation: pulse 1.5s infinite ease-in-out; */
-    background-color: black;
+    background-color: rgb(27, 27, 27);
     position: relative;
     left: 2vw;
     top: 30vh;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
     gap: 2vh;
@@ -52,14 +48,14 @@
   height: 7vh;
   width: 20vw;
   border-radius: 10px;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
 }
 .detailLoading{
   margin-left: 2vw;
   height: 20vh;
   width: 30vw;
   border-radius: 10px;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
 }
 .btnLoading{
   margin-left: 2vw;
@@ -72,32 +68,146 @@
   width: 15vw;
   height: 6.5vh;
   border-radius: 10px;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
 }
 .btn4{
   width: 6.5vh;
   height: 6.5vh;
   border-radius: 10px;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
 }
 .topic{
+  display: none;
+}
+.topic1{
   position: absolute;
   top: 90vh;
   left:7.5vw;
   width: 15vw;
   height: 4vh;
   border-radius: 10px;
-  animation: pulse 1.5s infinite ease-in-out;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+.cardsLoading{
+  display: none;
+}
+.mobile-nav{
+  display: none;
 }
   
-  @keyframes pulse{
+
+
+  @keyframes shimmer {
     0% {
-      background-color: #444;
-    }
-    50% {
-      background-color: #555;
+      background-position: -1000px 0;
     }
     100% {
-      background-color: #444;
+      background-position: 1000px 0;
     }
   }
+  
+  .cardsLoading, .mylogo, .navbar, .posterLoading, .nameLoading, .detailLoading, .btn3, .btn4, .topic {
+    background: linear-gradient(
+      to right,
+      #292929 0%,
+      #3e3e3e 20%,
+      #292929 40%,
+      #292929 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+@media (width < 481px){
+  .bannerLoading{
+    width: 100vw;
+  }
+  .mylogo{
+    top:1.5vh ;
+    left: 2vw;
+    height: 2.6vh;
+    width: 40vw;
+    animation:none;
+    z-index: 1000;
+  }
+  .navbar{
+    display: none;
+  }
+  .posterLoading{
+    top: 0vh;
+    height: 23vh;
+    width: 100vw;
+    left:0;
+  }
+  .detailsLoading{
+    height: 20vh;
+    width: 100vw;
+    left: 0;
+    top: 23vh;
+    display: flex;
+    align-items: center;
+    gap: 2.5vh;
+  }
+  .nameLoading{
+    margin-left: 0;
+    height: 4vh;
+    width: 70vw;
+  }
+  .detailLoading{
+    margin-left: 0;
+    height: 4vh;
+    width: 50vw;
+  }
+  .btnLoading{
+    width: auto;
+    height: 5.5vh;
+    margin-left: 0;
+  }
+  .btn3{
+    width: 50vw;
+    height: 5.5vh;
+  }
+  .btn4{
+    height: 5.5vh;
+    width: 5.5vh;
+  }
+  .topic1{
+    left: 1vw;
+    top: 47vh;
+    height: auto;
+    width: 98vw;
+    animation: none;
+  }
+  .topic{
+    margin-left: 2vw;
+    display: block;
+    height: 3.5vh;
+    width: 45vw;
+    border-radius: 10px;
+    animation: shimmer 1.5s infinite ease-in-out;
+
+  }
+  .cards-div{
+    display: flex;
+    gap: 0.7vw;
+  }
+  .cardsLoading{
+    margin-top: 1.5vh;
+    display: block;
+    height: 201.2px;
+    width: 32.3vw;
+    animation: shimmer 1.5s infinite ease-in-out;
+    border-radius: 10px;
+  }
+  .mobile-nav{
+    display: flex;
+    border-top: 1px solid rgb(50, 50, 50);
+    position: absolute;
+    bottom: 0;
+    height: 8vh;
+    width:100vw;
+    align-items: center;
+    justify-content: space-around;
+    color: rgba(102, 102, 102, 0.69);
+    font-size: 21px;
+  }
+}

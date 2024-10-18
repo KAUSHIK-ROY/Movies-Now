@@ -19,12 +19,17 @@
 
 .all-cards{
     display: flex;
-    width: 92vw;
+    /* width: 92vw; */
+    width: 100%;
     gap: 0.65vw;
     overflow: hidden;
     min-height: 31.1vh;
     position: relative;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; 
+}
+.all-cards > * {
+    scroll-snap-align: start; /* Snap cards at the start of the container */
 }
 
 .all-cards::-webkit-scrollbar{     

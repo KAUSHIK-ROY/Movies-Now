@@ -30,8 +30,9 @@
     }
     .not-found{
         width: 100vw;
-        height: 80vh;
+        height: auto;
         text-align: center;
-        align-items: center;
+        top: 7vh;
+        font-size: 25px;
     }
 }

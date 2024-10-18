@@ -13,11 +13,11 @@ export default function Layout() {
   const { data: top_ratedData } = useFetch("/tv/top_rated");
   const { data: now_playingData } = useFetch("/movie/now_playing");
   const { data: airing_todayData } = useFetch("/tv/airing_today");
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   // useEffect(()=>{
   //   const timer = setTimeout(()=>{
   //     setLoading(false)
-  //   }, 10000);
+  //   }, 1000);
   //   return ()=>clearTimeout(timer);
   // },[])
   // if (loading){
@@ -32,11 +32,13 @@ export default function Layout() {
       </div>
         <Promotion />
         <SideNav />
+        <div className="home-movies">
         <Movies data={popularShowData} heading={"Popular Movies"} media_type={"movie"} />
         <Movies data={upcomingData} heading={"Upcoming"} media_type={"movie"} />
         <Movies data={top_ratedData} heading={"Top Rated"} media_type={"tv"} />
         <Movies data={now_playingData} heading={"Now Playing"} media_type={"movie"} />
         <Movies data={airing_todayData} heading={"Airing Today"} media_type={"tv"} />
+        </div>
       </Suspense>
     </div>
   );
