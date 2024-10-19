@@ -13,7 +13,7 @@ import moment from "moment";
 import useFetchLanguage from "../../Hooks/useFetchLanguage";
 import useFetchGenres from "../../Hooks/useFetchGenres";
 import { setWatchList } from "../../Redux/movieSlice";
-import BannerLoading from "./Skeleton-loading/BannerLoading";
+// import BannerLoading from "./Skeleton-loading/BannerLoading";
 // import useFetchCertifications from "../../Hooks/useFetchCertifications";
 
 export default function Promotion() {

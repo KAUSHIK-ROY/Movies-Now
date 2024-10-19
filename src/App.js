@@ -11,7 +11,7 @@ function App() {
 
   const fetchTrendingData = async() => {
     try{
-      const response = await axios.get('/trending/all/day')
+      const response = await axios.get('/trending/all/week')
       dispatch(setBannerData(response.data.results))
 
     } catch(error) {
@@ -33,6 +33,7 @@ function App() {
     fetchTrendingData()
     fetchConfiguration()
   },[])
+
   return (
     <div className="App">
       <Layout/>

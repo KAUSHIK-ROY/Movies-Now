@@ -1,13 +1,14 @@
 .m-moviesLoading{
     height: 100%;
     width: 100%;
+    position: relative;
 }
 .m-cardLoading{
     height: 75%;
     width: 92%;
-    position: absolute;
     border-radius: 10px;
-    left: 7.5vw;
+    margin-left: 7.3vw;
+    margin-top: 2vh;
     display: grid;
     grid-template-columns: repeat(7, 11.7%);
     column-gap: 30px;
@@ -40,7 +41,7 @@
   .m-cardLoading{
     height: auto;
     width: auto;
-    left: 0;
+    margin-left: 0;
     grid-template-columns: repeat(3, auto);
     column-gap: 1vw;
     row-gap: 2vw;

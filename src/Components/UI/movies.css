@@ -26,6 +26,7 @@
     min-height: 31.1vh;
     position: relative;
     scroll-behavior: smooth;
+    transition: all;
     scroll-snap-type: x mandatory; 
 }
 .all-cards > * {

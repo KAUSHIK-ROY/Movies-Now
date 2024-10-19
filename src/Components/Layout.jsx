@@ -13,7 +13,7 @@ export default function Layout() {
   const { data: top_ratedData } = useFetch("/tv/top_rated");
   const { data: now_playingData } = useFetch("/movie/now_playing");
   const { data: airing_todayData } = useFetch("/tv/airing_today");
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   // useEffect(()=>{
   //   const timer = setTimeout(()=>{
   //     setLoading(false)

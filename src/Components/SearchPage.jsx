@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { setImageURL } from "../Redux/movieSlice";
 import useFetch from "../Hooks/useFetch";
 import Loading from "./UI/Skeleton-loading/Loading";
+import M_movies from "./UI/Movies/M_movies";
 
 export default function SearchPage() {
   const location = useLocation();
@@ -17,13 +18,15 @@ export default function SearchPage() {
   const [page, setPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
   const [showNotFound, setShowNotFound] = useState(false);
-  const [placeholder, setPlaceholder] = useState("Search your fevourite movies and TV shows...");
+  const [placeholder, setPlaceholder] = useState(
+    "Search your fevourite movies and TV shows..."
+  );
   const navigate = useNavigate();
 
   const query = location?.search?.slice(3);
   const fetchData = async () => {
     setIsSearching(true);
-    setShowNotFound(false)
+    setShowNotFound(false);
     try {
       const response = await axios.get(`search/multi`, {
         params: {
@@ -42,7 +45,7 @@ export default function SearchPage() {
     } catch (error) {
       console.log("error", error);
     }
-  }; 
+  };
 
   const dispatch = useDispatch();
   const fetchConfiguration = async () => {
@@ -72,7 +75,7 @@ export default function SearchPage() {
   }, [page]);
 
   const handleScroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10) {
       setPage((preve) => preve + 1);
     }
   };
@@ -80,14 +83,14 @@ export default function SearchPage() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); 
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const { data: trendingData } = useFetch("/trending/all/day");
+  const { data: trendingData } = useFetch("/trending/all/week");
 
   const updatePlaceholder = () => {
-    if (window.innerWidth <481) {
+    if (window.innerWidth < 481) {
       setPlaceholder("Search movies and TV shows");
     } else {
       setPlaceholder("Search your fevourite movies and TV shows...");
@@ -95,10 +98,10 @@ export default function SearchPage() {
   };
 
   useEffect(() => {
-    updatePlaceholder(); 
-    window.addEventListener('resize', updatePlaceholder);
+    updatePlaceholder();
+    window.addEventListener("resize", updatePlaceholder);
 
-    return () => window.removeEventListener('resize', updatePlaceholder);
+    return () => window.removeEventListener("resize", updatePlaceholder);
   }, []);
 
   // console.log("data", data);
@@ -116,35 +119,33 @@ export default function SearchPage() {
           value={query?.split("%20")?.join(" ")}
         />
       </div>
+      <div className="blank-div"></div>
       <SideNav />
       <Suspense fallback={<Loading />}>
-        <div className="s-movies">
-          {isSearching ? (
-            data.length != 0 ? (
-              data.map((searchData, index) => {
-                return (
-                  <M_cards
-                    data={searchData}
-                    key={index}
-                    media_type={searchData.media_type}
-                  />
-                );
-              })
-            ) : (
-              showNotFound && (
-                <h1 className="not-found">
-                  Oops! We couldn't find any results. Try again!
-                </h1>
-              )
-            )
+        {isSearching ? (
+          data.length != 0 ? (
+            <M_movies
+              data={data}
+              heading={""}
+              media_type={data.media_type}
+              setPage={setPage}
+            />
           ) : (
-            trendingData.map((data, index) => {
-              return (
-                <M_cards data={data} key={index} media_type={data.media_type} />
-              );
-            })
-          )}
-        </div>
+            showNotFound && (
+              <h1 className="not-found">
+                Oops! We couldn't find any results. Try again!
+              </h1>
+            )
+          )
+        ) : (
+          <M_movies
+            data={trendingData}
+            heading={""}
+            media_type={data.media_type}
+            setPage={setPage}
+          />
+        )}
+        {/* </div> */}
       </Suspense>
     </div>
   );
