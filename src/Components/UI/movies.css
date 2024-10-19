@@ -38,7 +38,7 @@
 }
 
 .btn1 {
-    width: 4vw;
+    width: 6vw;
     height: 226.5px ;
     position: absolute;
     top: 5.5vh;
@@ -51,10 +51,10 @@
 }
 .right{
     right: 0;
-    background: linear-gradient(to left,#0f1014 0.62%, rgba(15, 16, 20, 0) 99.33%);
+    background: linear-gradient(to left,#000000 0%, #00000000 100%);
 }
 .left{
-    background: linear-gradient(to right, #0f1014 0.62%, rgba(15, 16, 20, 0) 99.33%);
+    background: linear-gradient(to right, #000000 0%, #00000000 100%);
 }
 .all-cards:hover ~ .btn1,
 .btn1:hover {
