@@ -76,6 +76,9 @@
     align-items: center;
     justify-content: center;
 }
+.mb-card p span{
+    color: rgba(255, 255, 255, 0.332);
+}
 
 @media (width < 481px) {
     .m-cards{

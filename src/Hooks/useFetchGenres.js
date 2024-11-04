@@ -9,8 +9,11 @@ const useFetchGenres = () => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const movieGenreURL = "https://api.themoviedb.org/3/genre/movie/list";
-        const tvGenreURL = "https://api.themoviedb.org/3/genre/tv/list";
+        // const movieGenreURL = "https://api.themoviedb.org/3/genre/movie/list"; //local host
+        // const tvGenreURL = "https://api.themoviedb.org/3/genre/tv/list"; //local host
+
+        const movieGenreURL = "/genre/movie/list"; //netlify
+        const tvGenreURL = "/genre/tv/list"; //netlify
 
         // Fetch genres from both movie and TV endpoints
         const [movieResponse, tvResponse] = await Promise.all([
@@ -48,7 +51,7 @@ const useFetchGenres = () => {
         const genre = genres.find((g) => g.id === id);
         return genre ? genre.name : id;
       })
-      .join(" | ");
+      .join(" • ");
   };
 
   return { genres, getGenreNames, loading, error };

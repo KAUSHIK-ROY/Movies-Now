@@ -54,6 +54,10 @@
     font-weight: bold;
 }
 
+.bold span{
+    color: rgba(255, 255, 255, 0.332);
+}
+
 .play-btn{
     height: 10vh;
     font-weight: bold;

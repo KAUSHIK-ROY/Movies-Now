@@ -40,7 +40,7 @@ export default function SearchPage() {
       if (response.data.results.length === 0) {
         setTimeout(() => {
           setShowNotFound(true);
-        }, 3000);
+        }, 1000);
       }
     } catch (error) {
       console.log("error", error);
@@ -103,6 +103,7 @@ export default function SearchPage() {
 
     return () => window.removeEventListener("resize", updatePlaceholder);
   }, []);
+
 
   // console.log("data", data);
 

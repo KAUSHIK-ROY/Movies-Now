@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import useFetchLanguages from "../Hooks/useFetchLanguage";
-// import VideoPlay from "./VideoPlay";
 import useFetch from "../Hooks/useFetch";
 import BackBtn from "./UI/BackBtn";
 
@@ -86,16 +85,17 @@ export default function DetailPage() {
               data.data?.original_name}
           </h1>
           <p className="bold">
-            {params?.detail} <span> | </span>{" "}
+            {params?.detail == "tv" ? "TV Show" : "Movie"} <span> | </span>{" "}
             {getLanguageName(data.data?.original_language)} <span> | </span>{" "}
-            {params?.detail == "tv" ? "" : formattedDuration} <span> | </span>
+            {params?.detail == "tv" ? "" : formattedDuration} 
+            {params?.detail !== "tv" && <span> | </span>}
             {moment(
               data.data?.release_date || data.data?.first_air_date
             ).format("MMMM Do YYYY")}
           </p>
           <p>{data.data?.overview}</p>
           <p className="bold">
-            {data.data?.genres.map((genre) => genre.name).join(" | ")}
+            {data.data?.genres.map((genre) => genre.name).join(" • ")}
           </p>
 
           <div className="play-btn1">
@@ -119,7 +119,7 @@ export default function DetailPage() {
       {similarData.length != 0 && (
         <Movies
           data={similarData}
-          heading={`Similar ${params?.detail}`}
+          heading={`Similar ${params?.detail == "tv" ? "TV Shows" : "Movies"}`}
           media_type={params?.detail}
         />
       )}
@@ -131,7 +131,6 @@ export default function DetailPage() {
         />
       )}
 
-      {/* {playVideo && <VideoPlay close={() => setPlayVideo(false)} />} */}
     </div>
   );
 }

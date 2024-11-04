@@ -11,7 +11,9 @@ const useFetchLanguages = () => {
     const fetchLanguages = async () => {
       try {
         const response = await axios.get(
-          "https://api.themoviedb.org/3/configuration/languages",
+          // "https://api.themoviedb.org/3/configuration/languages", //local host
+
+          "/configuration/languages" //netlify
         );
         setLanguages(response.data);
         setLoading(false);

@@ -83,6 +83,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.b-card p span{
+    color: rgba(255, 255, 255, 0.332);
+}
 .b-card button{
     background: linear-gradient(90deg, #00bdff, #0079ff);
     height: 50px;

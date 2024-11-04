@@ -21,7 +21,9 @@ import SearchPage from "./Components/SearchPage";
 import GenrePage from "./Components/GenrePage";
 
 
-axios.defaults.baseURL = "https://api.themoviedb.org/3";
+// axios.defaults.baseURL = "https://api.themoviedb.org/3";    //local host
+axios.defaults.baseURL = "/api";  //netlify
+
 axios.defaults.headers.common[
   "Authorization"
 ] = `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`;

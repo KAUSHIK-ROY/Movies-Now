@@ -10,8 +10,12 @@ const useFetchCertifications = () => {
     const fetchCertifications = async () => {
       try {        
         // Endpoints for movie and TV certifications
-        const movieCertificationsURL = "https://api.themoviedb.org/3/certification/movie/list";
-        const tvCertificationsURL = "https://api.themoviedb.org/3/certification/tv/list";
+
+        // const movieCertificationsURL = "https://api.themoviedb.org/3/certification/movie/list"; //local host
+        // const tvCertificationsURL = "https://api.themoviedb.org/3/certification/tv/list"; //local host
+
+        const movieCertificationsURL = "/certification/movie/list"; //netlify
+        const tvCertificationsURL = "/certification/tv/list"; //netlify
         
         // Fetch certifications data
         const [movieResponse, tvResponse] = await Promise.all([

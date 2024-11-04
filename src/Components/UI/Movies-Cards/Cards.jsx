@@ -61,7 +61,7 @@ export default function Cards({ data, media_type }) {
             </Link>
             <h1>{data?.title || data?.name}</h1>
             <p>
-              {mediaType} | {getLanguageName(data.original_language)} |{" "}
+              {mediaType == "tv" ? "TV show" : "Movie"} <span>|</span> {getLanguageName(data.original_language)} <span>|</span>{" "}
               {moment(data.release_date || data.first_air_date).format("YYYY")}
             </p>
             <p>{data?.overview}</p>

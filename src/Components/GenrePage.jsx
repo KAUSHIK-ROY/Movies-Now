@@ -43,12 +43,13 @@ export default function GenrePage() {
       );
       setMovies((prevMovies) => [...prevMovies, ...response.data.results]);
       setLoading(false);
+      
     } catch (error) {
       console.log("Error", error);
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     setPage(1);
     setMovies([]);

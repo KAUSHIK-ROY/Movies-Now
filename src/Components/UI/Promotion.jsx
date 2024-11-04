@@ -84,8 +84,8 @@ export default function Promotion() {
                           data.original_name}
                       </h1>
                       <p className="bold">
-                        {data.media_type} |{" "}
-                        {getLanguageName(data.original_language)} |{" "}
+                        {data.media_type == "tv" ? "TV Show" : "Movie" } <span> | </span>{" "}
+                        {getLanguageName(data.original_language)} <span> | </span>{" "}
                         {/* {certLoading ? "Loading certifications..." : getCertificationName(data.media_type, "US", data.certification)} | */}
                         {moment(
                           data.release_date || data.first_air_date

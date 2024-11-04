@@ -1,11 +1,14 @@
 .movies-all{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     /* align-items: center; */
     flex-direction: column;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    /* overflow-y: auto; */
     scroll-behavior: smooth;
+    /* background-color: pink; */
+    position: relative;
 }
 .movies-all .component-name{
     height: 8vh;
